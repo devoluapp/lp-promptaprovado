@@ -10,17 +10,17 @@
   --bg-card-hover: rgba(28, 39, 64, 0.6);
   --border-color: rgba(255, 255, 255, 0.08);
   --border-color-hover: rgba(0, 242, 254, 0.3);
-  
+
   --text-primary: #f8fafc;
   --text-secondary: #94a3b8;
   --text-muted: #64748b;
-  
+
   /* Gradients */
   --gradient-primary: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
   --gradient-secondary: linear-gradient(135deg, #b5179e 0%, #7209b7 100%);
   --gradient-glow: linear-gradient(135deg, rgba(0, 242, 254, 0.15) 0%, rgba(138, 43, 226, 0.15) 100%);
   --gradient-gold: linear-gradient(135deg, #ffe259 0%, #ffa751 100%);
-  
+
   /* Accent Colors */
   --accent-cyan: #00f2fe;
   --accent-blue: #4facfe;
@@ -33,7 +33,7 @@
   /* Typography */
   --font-headings: 'Plus Jakarta Sans', sans-serif;
   --font-body: 'Inter', sans-serif;
-  
+
   /* Layout & Spacing */
   --container-width: 1140px;
   --border-radius-sm: 8px;
@@ -45,7 +45,9 @@
 }
 
 /* Base Reset & Styles */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -69,7 +71,7 @@ body {
 /* Layout Utilities */
 .container {
   width: 100%;
-  max-width: var(--container-width);
+  /* max-width: var(--container-width); */
   margin: 0 auto;
   padding: 0 24px;
 }
@@ -103,7 +105,12 @@ body {
 }
 
 /* Typography Styles */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-headings);
   font-weight: 700;
   line-height: 1.25;
@@ -178,9 +185,20 @@ header {
 }
 
 @keyframes pulse {
-  0% { transform: scale(0.9); opacity: 0.5; }
-  50% { transform: scale(1.2); opacity: 1; }
-  100% { transform: scale(0.9); opacity: 0.5; }
+  0% {
+    transform: scale(0.9);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(0.9);
+    opacity: 0.5;
+  }
 }
 
 /* Buttons & CTAs */
@@ -215,7 +233,7 @@ header {
   left: -50%;
   width: 200%;
   height: 200%;
-  background: linear-gradient(to bottom right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%);
+  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0) 100%);
   transform: rotate(45deg);
   transition: transform 0.6s ease;
   pointer-events: none;
@@ -320,7 +338,7 @@ header {
   padding: 24px;
   backdrop-filter: blur(12px);
   position: relative;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
   overflow: hidden;
 }
 
@@ -392,9 +410,18 @@ header {
   height: 10px;
   border-radius: 50%;
 }
-.term-dot-red { background-color: #ff5f56; }
-.term-dot-yellow { background-color: #ffbd2e; }
-.term-dot-green { background-color: #27c93f; }
+
+.term-dot-red {
+  background-color: #ff5f56;
+}
+
+.term-dot-yellow {
+  background-color: #ffbd2e;
+}
+
+.term-dot-green {
+  background-color: #27c93f;
+}
 
 .term-title {
   margin-left: auto;
@@ -614,6 +641,7 @@ header {
 .timeline-item.fail .timeline-year {
   color: #fca5a5;
 }
+
 .timeline-item.success .timeline-year {
   color: #6ee7b7;
 }
@@ -1004,7 +1032,7 @@ header {
   max-width: 800px;
   margin: 0 auto;
   position: relative;
-  box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(12px);
 }
 
@@ -1363,25 +1391,25 @@ footer {
     gap: 48px;
     text-align: center;
   }
-  
+
   .hero-content {
     align-items: center;
   }
-  
+
   .hero-benefits {
     justify-content: center;
   }
-  
+
   .story-grid {
     grid-template-columns: 1fr;
     gap: 48px;
   }
-  
+
   .secret-layout {
     grid-template-columns: 1fr;
     gap: 48px;
   }
-  
+
   .module-inner-content {
     grid-template-columns: 1fr;
     gap: 24px;
@@ -1393,45 +1421,70 @@ footer {
     padding-bottom: 80px;
   }
 
-  h1 { font-size: 26px; line-height: 1.35; }
-  .hero-title { font-size: 26px; line-height: 1.35; }
-  .hero-subtitle { font-size: 16px; line-height: 1.6; }
-  .section-title { font-size: 24px; line-height: 1.3; }
-  .secret-title { font-size: 22px; line-height: 1.3; }
-  
+  h1 {
+    font-size: 26px;
+    line-height: 1.35;
+  }
+
+  .hero-title {
+    font-size: 26px;
+    line-height: 1.35;
+  }
+
+  .hero-subtitle {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .section-title {
+    font-size: 24px;
+    line-height: 1.3;
+  }
+
+  .secret-title {
+    font-size: 22px;
+    line-height: 1.3;
+  }
+
   .hero {
     padding: 40px 0;
   }
-  .story-section, .secret-section, .product-section, .pricing-section, .faq-section {
+
+  .story-section,
+  .secret-section,
+  .product-section,
+  .pricing-section,
+  .faq-section {
     padding: 60px 0;
   }
-  
+
   .container {
     padding: 0 20px;
   }
-  
+
   .metrics-layout {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
   }
-  
+
   .pricing-card {
     padding: 32px 20px;
   }
-  
+
   .price-amount {
     font-size: 48px;
   }
-  
+
   .pricing-features-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .sticky-cta {
-    display: block; /* Show sticky CTA on mobile */
+    display: block;
+    /* Show sticky CTA on mobile */
     padding: 12px 0;
   }
-  
+
   .sticky-cta .container {
     width: 100% !important;
     max-width: 100% !important;
@@ -1439,7 +1492,7 @@ footer {
     margin: 0 auto !important;
     box-sizing: border-box !important;
   }
-  
+
   .sticky-cta-layout {
     display: flex;
     flex-direction: row;
@@ -1448,13 +1501,13 @@ footer {
     gap: 12px;
     padding: 0;
   }
-  
+
   .sticky-cta-info {
     display: flex;
     flex-direction: column;
     gap: 2px;
   }
-  
+
   .sticky-title {
     font-size: 13px;
     white-space: nowrap;
@@ -1462,11 +1515,11 @@ footer {
     text-overflow: ellipsis;
     max-width: 180px;
   }
-  
+
   .sticky-price {
     font-size: 12px;
   }
-  
+
   #sticky-cta-action-btn {
     padding: 10px 16px !important;
     font-size: 13px !important;
@@ -1486,40 +1539,69 @@ footer {
     padding-bottom: 120px;
   }
 
-  h1 { font-size: 22px; }
-  .hero-title { font-size: 22px; }
-  .hero-subtitle { font-size: 15px; }
-  .section-title { font-size: 20px; }
-  .secret-title { font-size: 18px; }
-  .module-title { font-size: 16px; }
-  .faq-title { font-size: 15px; }
+  h1 {
+    font-size: 22px;
+  }
+
+  .hero-title {
+    font-size: 22px;
+  }
+
+  .hero-subtitle {
+    font-size: 15px;
+  }
+
+  .section-title {
+    font-size: 20px;
+  }
+
+  .secret-title {
+    font-size: 18px;
+  }
+
+  .module-title {
+    font-size: 16px;
+  }
+
+  .faq-title {
+    font-size: 15px;
+  }
 
   .hero {
     padding: 30px 0;
   }
-  .story-section, .secret-section, .product-section, .pricing-section, .faq-section {
+
+  .story-section,
+  .secret-section,
+  .product-section,
+  .pricing-section,
+  .faq-section {
     padding: 40px 0;
   }
-  
+
   .container {
     padding: 0 16px;
   }
-  
+
   .metrics-layout {
     grid-template-columns: 1fr;
   }
+
   .btn {
     width: 100%;
     font-size: 14px;
     padding: 12px 18px;
   }
+
   .btn-large {
     font-size: 14px;
     padding: 14px 20px;
   }
+
   .timeline-container {
     padding-left: 20px;
   }
+
   .timeline-dot {
     left: -31px;
   }
@@ -1527,7 +1609,7 @@ footer {
   .sticky-cta {
     padding: 10px 0;
   }
-  
+
   .sticky-cta .container {
     width: 100% !important;
     max-width: 100% !important;
@@ -1535,14 +1617,14 @@ footer {
     margin: 0 auto !important;
     box-sizing: border-box !important;
   }
-  
+
   .sticky-cta-layout {
     flex-direction: column;
     gap: 8px;
     align-items: center;
     text-align: center;
   }
-  
+
   .sticky-cta-info {
     flex-direction: row;
     justify-content: center;
@@ -1550,17 +1632,17 @@ footer {
     gap: 8px;
     flex-wrap: wrap;
   }
-  
+
   .sticky-title {
     font-size: 12px;
     max-width: none;
     white-space: normal;
   }
-  
+
   .sticky-price {
     font-size: 12px;
   }
-  
+
   #sticky-cta-action-btn {
     width: auto !important;
     max-width: 100%;
@@ -1572,31 +1654,37 @@ footer {
   .simulator-widget {
     padding: 16px;
   }
+
   .sim-terminal-body {
     padding: 12px;
     font-size: 12px;
   }
+
   .sim-bubble {
     padding: 8px 12px;
   }
-  
+
   .interactive-demo {
     padding: 16px;
   }
+
   .demo-chat {
     padding: 12px;
     font-size: 13px;
   }
+
   .chat-text {
     padding: 10px 12px;
   }
-  
+
   .pricing-card {
     padding: 24px 16px;
   }
+
   .price-amount {
     font-size: 40px;
   }
+
   .guarantee-box {
     flex-direction: column;
     text-align: center;

@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PromptAprovado | Engenharia de Prompt e NotebookLM para Concursos</title>
+  <meta name="description"
+    content="Descubra o método exato de Estudo Ativo com Inteligência Artificial que transformou um concurseiro comum de 42 anos em aprovado em 6º lugar no TRT-2. Comandos prontos de IA para copiar e colar.">
+
+  <!-- Favicon / Meta properties -->
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Background Glow Elements -->
+  <div class="glow-blob glow-blob-1"></div>
+  <div class="glow-blob glow-blob-2"></div>
+  <div class="glow-blob glow-blob-3"></div>
+
+  <!-- Header -->
+  <header>
+    <div class="container header-container">
+      <a href="#" class="logo" id="header-logo">
+        <div class="logo-icon">⚡</div>
+        <div class="logo-text">Prompt<span>Aprovado</span></div>
+      </a>
+      <div class="header-badge" id="homologado-badge">
+        <span class="badge-dot"></span>
+        Edição 2026
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="hero-section">
+      <div class="container hero-layout">
+        <div class="hero-content">
+          <span class="hero-tagline">Inteligência Artificial para Concursos</span>
+          <h1 class="hero-title" id="main-headline">
+            Eu não sou um gênio. Reprovei em 2018, reprovei no início de 2025... mas passei em <span>6º lugar para
+              Analista do TRT-2</span> usando Inteligência Artificial para fazer o que os cursinhos não te ensinam:
+            Estudo Ativo.
+          </h1>
+          <p class="hero-subtitle" id="main-subheadline">
+            Descubra o método exato de Engenharia de Prompt e uso do NotebookLM que transformou um concurseiro comum de
+            42 anos, pai de família e com rotina de trabalho integral, em um aprovado no top 10 de um dos tribunais
+            mais concorridos do país. <strong>Sem fórmulas mágicas e sem enrolação.</strong>
+          </p>
+          <div class="hero-ctas">
+            <a href="#pricing" class="btn btn-primary btn-large" id="hero-cta-btn">
+              QUERO ESTUDAR COM IA DE FORMA SÉRIA E PASSAR NO MEU CONCURSO
+            </a>
+          </div>
+          <div class="hero-benefits">
+            <div class="benefit-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              Acesso Vitalício
+            </div>
+            <div class="benefit-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              Biblioteca com +20 Prompts
+            </div>
+            <div class="benefit-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              Atualizações Inclusas
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive AI Simulator -->
+        <div class="simulator-widget" id="ai-simulator">
+          <div class="sim-header">
+            <span class="demo-tag">Demonstração Interativa</span>
+            <div class="sim-tabs">
+              <button class="sim-tab-btn active" id="tab-btn-feynman" onclick="switchSimulatorTab('feynman')">Feynman
+                Reverso</button>
+              <button class="sim-tab-btn" id="tab-btn-erro" onclick="switchSimulatorTab('erro')">Análise de
+                Erro</button>
+            </div>
+          </div>
+          <div class="sim-window">
+            <div class="sim-terminal-header">
+              <span class="term-dot term-dot-red"></span>
+              <span class="term-dot term-dot-yellow"></span>
+              <span class="term-dot term-dot-green"></span>
+              <span class="term-title">feynman_reverso.sh</span>
+            </div>
+            <div class="sim-terminal-body" id="sim-terminal-body">
+              <!-- Chat items get dynamically generated/typed via JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Proof Metrics -->
+    <section class="metrics-bar" id="metrics-section">
+      <div class="container metrics-layout">
+        <div class="metric-card" id="metric-lugar">
+          <span class="metric-number">6º</span>
+          <span class="metric-label">Lugar Geral Analista TRT-2</span>
+        </div>
+        <div class="metric-card" id="metric-prompts">
+          <span class="metric-number">20+</span>
+          <span class="metric-label">Prompts Prontos de Engenharia</span>
+        </div>
+        <div class="metric-card" id="metric-modulos">
+          <span class="metric-number metric-number-purple">5</span>
+          <span class="metric-label">Módulos de Estudo Ativo</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Journey / Story Section -->
+    <section class="story-section" id="story-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Minha Jornada</span>
+          <h2 class="section-title">De reprovações seguidas ao <span>Top 10</span> do TRT-2</h2>
+        </div>
+        <div class="story-grid">
+          <!-- Interactive/Animated Timeline -->
+          <div class="story-visual" id="story-timeline-col">
+            <div class="timeline-container">
+              <div class="timeline-item success" id="timeline-2012">
+                <div class="timeline-dot"></div>
+                <div class="timeline-year">2012</div>
+                <div class="timeline-title">Primeiro cargo técnico</div>
+                <div class="timeline-desc">Aprovado no TRT-2, mas lá atrás (1500+). Aprovado no final da validade.</div>
+              </div>
+              <div class="timeline-item fail" id="timeline-2018">
+                <div class="timeline-dot"></div>
+                <div class="timeline-year">2018</div>
+                <div class="timeline-title">Primeira tentativa para Analista</div>
+                <div class="timeline-desc">Reprovado logo de cara. Estudo passivo tradicional não funcionou.</div>
+              </div>
+              <div class="timeline-item fail" id="timeline-2018-2024">
+                <div class="timeline-dot"></div>
+                <div class="timeline-year">2018 - 2024</div>
+                <div class="timeline-title">Fila do "quase"</div>
+                <div class="timeline-desc">Fiquei na fila da Justiça Eleitoral, TRT-12 e TRF-3. Quase lá, mas sem vaga.
+                </div>
+              </div>
+              <div class="timeline-item fail" id="timeline-2025">
+                <div class="timeline-dot"></div>
+                <div class="timeline-year">Início de 2025</div>
+                <div class="timeline-title">O Pior Soco (TRT-15)</div>
+                <div class="timeline-desc">Reprovado na objetiva, nem tive a redação/discursiva corrigida. Frustração
+                  total.</div>
+              </div>
+              <div class="timeline-item success" id="timeline-2026">
+                <div class="timeline-dot"></div>
+                <div class="timeline-year">2026 (Hoje)</div>
+                <div class="timeline-title">A Grande Virada (TRT-2)</div>
+                <div class="timeline-desc">🥇 6º Lugar Geral para Analista Judiciário do TRT-2. Homologado e aguardando
+                  posse!</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Written Copy -->
+          <div class="story-content" id="story-text-col">
+            <h3>Se você acha que só passa em tribunal quem é jovem, tem o dia todo livre ou é um gênio da memorização...
+              eu preciso te contar uma coisa.</h3>
+            <p>
+              Em 2012, eu assumi o cargo de Técnico no TRT-2. Mas eu não passei nas cabeças. Eu passei lá atrás, em
+              milésimo quinhentos e pouco, em um concurso atípico que chamou muita gente no final do prazo. Os anos se
+              passaram, eu já estava estável, mas eu queria o cargo de Analista.
+            </p>
+            <p>
+              Entre 2018 e 2025, eu prestei 6 concursos para Analista de Tribunais Federais. Sabe o que aconteceu?
+            </p>
+            <ul>
+              <li><strong>Reprovei</strong> logo de cara em 2018.</li>
+              <li>Fiquei na fila do "quase" na Justiça Eleitoral, TRT-12 e TRF-3.</li>
+              <li>Em 2025, o pior soco: <strong>fui reprovado na objetiva do TRT-15, nem tive minha discursiva
+                  corrigida.</strong></li>
+            </ul>
+            <p>
+              A grande virada de chave aconteceu no mesmo ano. Depois da reprovação na prova do TRT-15 e <strong>não
+                conseguir aprovação nem na prova objetiva</strong>. A frustração foi enorme. Eu tinha 42 anos, uma
+              jornada de trabalho integral, esposa, um filho de 4 anos, na época, para dar atenção e o peso psicológico
+              de ter
+              perdido meu irmão recentemente — uma perda que me devastou, mas que também virou meu combustível para
+              buscar uma condição melhor para a minha família.
+            </p>
+            <blockquote>
+              "Eu percebi que se continuasse estudando do jeito tradicional (leitura passiva de PDFs e videoaulas
+              infinitas), eu jogaria anos de bagagem acumulada no lixo. <strong>Eu precisava parar de apenas 'assistir'
+                à matéria e aplicar o que eu descobri que os aprovados de elite faziam: Estudo Ativo.</strong>"
+            </blockquote>
+            <p>
+              Foi aí que eu decidi usar a tecnologia a meu favor.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Secret Section -->
+    <section class="secret-section" id="secret-section">
+      <div class="container secret-layout">
+        <div class="secret-text">
+          <span class="section-badge" style="align-self: flex-start;">O Segredo do Método</span>
+          <h2 class="secret-title">Eu transformei a Inteligência Artificial no meu <span>tutor particular</span> de
+            Direito, TI e Revisão.</h2>
+          <div class="secret-desc">
+            <p>
+              Eu não usei cronogramas complexos que te punem se você atrasar um dia. Eu usei um controle simples no
+              Google Docs, criei meus próprios flashcards manuais para sintetizar ao extremo o conteúdo e usei a IA para
+              fazer o chamado <strong>"Feynman Reverso"</strong>.
+            </p>
+            <p>
+              Eu explicava o assunto para a IA com as minhas próprias palavras, e ela me dava o feedback em tempo real:
+              <em>“Você acertou isso, mas omitiu a pegadinha X que a banca costuma cobrar”</em>.
+            </p>
+            <p>
+              Apenas alguns meses depois de reprovar no TRT-15, aplicando essa exata abordagem de Engenharia de Prompt e
+              uso das ferramentas certas de IA, veio o resultado:
+            </p>
+            <h3 style="color: var(--accent-cyan); font-size: 22px; margin-top: 10px;">🥇 6º Lugar Geral para Analista
+              Judiciário do TRT-2.</h3>
+            <p>
+              O concurso já foi homologado neste ano de 2026, as nomeações estão andando e eu estou na boca para assumir
+              a minha vaga.
+            </p>
+          </div>
+        </div>
+
+        <!-- Chat Demo Simulation visual -->
+        <div class="interactive-demo" id="method-demo-visual">
+          <div class="demo-header">
+            <span class="demo-tag">Como Funciona Na Prática</span>
+            <h4 class="demo-title">O Método "Feynman Reverso"</h4>
+          </div>
+          <div class="demo-chat">
+            <div class="chat-bubble chat-bubble-user" id="chat-u1">
+              <div class="chat-avatar avatar-user">EU</div>
+              <div class="chat-bubble-content">
+                <span class="chat-name">Estudante (Estudo Ativo)</span>
+                <div class="chat-text">
+                  Expliquei o Art. 5º, XLIII da CF: a lei considerará crimes inafiançáveis e insuscetíveis de graça ou
+                  anistia a prática da tortura, o tráfico de entorpecentes, o terrorismo e os crimes hediondos. Eles não
+                  admitem fiança e não recebem perdão coletivo.
+                </div>
+              </div>
+            </div>
+            <div class="chat-bubble chat-bubble-ai" id="chat-a1">
+              <div class="chat-avatar avatar-ai">IA</div>
+              <div class="chat-bubble-content">
+                <span class="chat-name">PromptAprovado Tutor</span>
+                <div class="chat-text">
+                  Excelente explicação ativa! Você dominou o núcleo do artigo.
+                  <span class="feedback-tag feedback-warning">⚠️ PEGADINHA DE BANCA OMITIDA:</span>
+                  Você não mencionou quem responde por esses crimes. Lembre-se: respondem os mandantes, os executores e
+                  os que, podendo evitá-los, se omitirem. A banca FCC adora cobrar a omissão! Além disso, lembre-se que
+                  eles também são <strong>imprescritíveis</strong>? Não! Apenas o Racismo e a Ação de Grupos Armados são
+                  imprescritíveis. Tortura, tráfico, terrorismo e hediondos são <strong>apenas inafiançáveis e
+                    insuscetíveis de graça/anistia</strong>. Boa!
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product Modules Section -->
+    <section class="product-section" id="modules-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Conteúdo do Método</span>
+          <h2 class="section-title">O PromptAprovado não é um curso de teoria. É a <span>chave da minha aprovação</span>
+            traduzida em comandos prontos para você copiar e colar.</h2>
+          <p style="color: var(--text-secondary); margin-top: 16px; font-size: 16px;">
+            Eu empacotei toda a minha estratégia em uma plataforma minimalista, direto ao ponto, dividida em 5 módulos
+            estratégicos e uma biblioteca com mais de 20 prompts prontos para o seu dia a dia.
+          </p>
+        </div>
+
+        <div class="modules-list" id="modules-accordion">
+
+          <!-- Módulo 1 -->
+          <div class="module-card active" id="module-card-1">
+            <div class="module-header" onclick="toggleModule(1)">
+              <div class="module-header-left">
+                <span class="module-badge">Módulo 1</span>
+                <h3 class="module-title">Fundamentos de Engenharia de Prompt</h3>
+              </div>
+              <div class="module-toggle-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </div>
+            </div>
+            <div class="module-content">
+              <div class="module-inner-content">
+                <div class="module-details">
+                  <p style="color: var(--text-secondary)">Aprenda a falar com a inteligência artificial da maneira
+                    correta. Entenda o esqueleto lógico dos prompts de alta performance aplicados a concursos públicos.
+                  </p>
+                  <ul class="module-features-list">
+                    <li class="module-feature-item">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                      <span>A estrutura <strong>PCIE</strong> (Papel, Contexto, Instrução, Exemplo) que usei para falar
+                        com a IA.</span>
+                    </li>
+                    <li class="module-feature-item">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                      <span>Como evitar alucinações e respostas genéricas da IA.</span>
+                    </li>
+                  </ul>
+                </div>
+                <div class="module-preview-box">
+                  <span class="preview-title">Código de Prompt Preview</span>
+                  <div class="preview-code">[PAPEL]: Você é um tutor especialista na banca do meu concurso...
+                    [CONTEXTO]: Estou estudando o tópico X...
+                    [INSTRUÇÃO]: Aplique o método PCIE...</div>
+                  <button class="preview-btn"
+                    onclick="copyPromptText('[PAPEL]: Você é um tutor especialista na banca do meu concurso...\n[CONTEXTO]: Estou estudando o tópico X...\n[INSTRUÇÃO]: Aplique o método PCIE...')">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                    Copiar Esqueleto
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Módulo 2 -->
+          <div class="module-card" id="module-card-2">
+            <div class="module-header" onclick="toggleModule(2)">
+              <div class="module-header-left">
+                <span class="module-badge">Módulo 2</span>
+                <h3 class="module-title">NotebookLM para Concursos</h3>
+              </div>
+              <div class="module-toggle-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </div>
+            </div>
+            <div class="module-content">
+              <div class="module-inner-content">
+                <div class="module-details">
+                  <p style="color: var(--text-secondary)">Aprenda a dominar o NotebookLM, a ferramenta gratuita do
+                    Google que se tornou o maior aliado dos concurseiros de alta performance.</p>
+                  <ul class="module-features-list">
+                    <li class="module-feature-item">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                      <span>Como fazer a IA ler seus PDFs pesados (leis secas, apostilas, editais) sem se perder.</span>
+                    </li>
+                    <li class="module-feature-item">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                      <span>Geração automática de áudios de revisão (Podcasts de estudo) e mapas mentais guiados.</span>
+                    </li>
+                  </ul>
+                </div>
+                <div class="module-preview-box">
+                  <span class="preview-title">NotebookLM Setup</span>
+                  <div class="preview-code">1. Crie uma fonte com a sua Lei Seca em PDF
+                    2. Utilize a ferramenta de Notas para criar o Guia de Foco
+                    3. Clique em "Generate Audio" para revisar ativamente no trânsito.</div>
+                  <button class="preview-btn" onclick="alert('Instrução completa disponível no painel do aluno!')">
+                    Ver Guia do NotebookLM
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Módulo 3 -->
+          <div class="module-card" id="module-card-3">
+            <div class="module-header" onclick="toggleModule(3)">
+              <div class="module-header-left">
+                <span class="module-badge">Módulo 3</span>
+                <h3 class="module-title">Estudo Ativo na Prática</h3>
+              </div>
+              <div class="module-toggle-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </div>
+            </div>
+            <div class="module-content">
+              <div class="module-inner-content">
+                <div class="module-details">
+                  <p style="color: var(--text-secondary)">A prática real que gera aprovação. Substitua a leitura passiva
+                    cansativa por dinâmicas interativas que forçam seu cérebro a memorizar.</p>
+                  <ul class="module-features-list">
+                    <li class="module-feature-item">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                      <span>O roteiro detalhado do <strong>Feynman Reverso</strong> passo a passo.</span>
+                    </li>
+                    <li class="module-feature-item">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                      <span>Criação de Flashcards sob demanda em segundos usando IA.</span>
+                    </li>
+                    <li class="module-feature-item">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                      <span>Simulados Adaptativos que focam nas suas fraquezas específicas.</span>
+                    </li>
+                  </ul>
+                </div>
+                <div class="module-preview-box">
+                  <span class="preview-title">Prompt Feynman Reverso</span>
+                  <div class="preview-code">"Aja como um examinador de concurso público exigente. Eu irei explicar o
+                    conceito X com minhas palavras..."</div>
+                  <button class="preview-btn"
+                    onclick="copyPromptText('Aja como um examinador de concurso público exigente. Eu irei explicar o conceito X com minhas palavras. Você deve avaliar minha explicação com base nas bancas tradicionais (FCC, FGV, Cebraspe), apontar omissões de pegadinhas frequentes e me dar uma nota de 0 a 10.')">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                    Copiar Prompt
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Módulo 4 -->
+          <div class="module-card" id="module-card-4">
+            <div class="module-header" onclick="toggleModule(4)">
+              <div class="module-header-left">
+                <span class="module-badge">Módulo 4</span>
+                <h3 class="module-title">Organização Inteligente</h3>
+              </div>
+              <div class="module-toggle-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </div>
+            </div>
+            <div class="module-content">
+              <div class="module-inner-content">
+                <div class="module-details">
+                  <p style="color: var(--text-secondary)">Aprenda a mapear seu edital com precisão matemática, sem
+                    desperdiçar tempo estudando tópicos que nunca caem.</p>
+                  <ul class="module-features-list">
+                    <li class="module-feature-item">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                      <span>Mapeamento de lacunas do edital automatizado por planilhas integradas com IA.</span>
+                    </li>
+                    <li class="module-feature-item">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                      <span>Priorização por peso estratégico de disciplinas.</span>
+                    </li>
+                  </ul>
+                </div>
+                <div class="module-preview-box">
+                  <span class="preview-title">Prompt de Mapeamento</span>
+                  <div class="preview-code">"Analise a relevância estatística dos tópicos deste edital para o cargo Y
+                    com base no histórico de provas..."</div>
+                  <button class="preview-btn"
+                    onclick="copyPromptText('Analise a relevância estatística dos tópicos deste edital para o cargo Y com base no histórico de provas da banca Z. Classifique em Alta, Média e Baixa prioridade.')">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                    Copiar Prompt
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Módulo 5 -->
+          <div class="module-card" id="module-card-5">
+            <div class="module-header" onclick="toggleModule(5)">
+              <div class="module-header-left">
+                <span class="module-badge">Módulo 5</span>
+                <h3 class="module-title">Fluxos Avançados</h3>
+              </div>
+              <div class="module-toggle-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </div>
+            </div>
+            <div class="module-content">
+              <div class="module-inner-content">
+                <div class="module-details">
+                  <p style="color: var(--text-secondary)">A tática dos concurseiros profissionais. Aprenda a rastrear
+                    seus erros para blindar sua pontuação na prova.</p>
+                  <ul class="module-features-list">
+                    <li class="module-feature-item">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                      <span>Análise pós-erro detalhada com IA para diagnosticar a raiz da falha de forma
+                        profunda.</span>
+                    </li>
+                    <li class="module-feature-item">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                      <span>Como criar um caderno de erros dinâmico que avisa quando você precisa revisar.</span>
+                    </li>
+                  </ul>
+                </div>
+                <div class="module-preview-box">
+                  <span class="preview-title">Prompt Pós-Erro</span>
+                  <div class="preview-code">"Colei esta questão que errei. Me explique o motivo exato do meu erro
+                    conceitual e crie uma pergunta de fixação..."</div>
+                  <button class="preview-btn"
+                    onclick="copyPromptText('Colei esta questão que errei. Me explique o motivo exato do meu erro conceitual, a pegadinha da alternativa e crie uma pergunta de fixação de nível difícil baseada no mesmo artigo.')">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                    Copiar Prompt
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing & CTA Section -->
+    <section class="pricing-section" id="pricing">
+      <div class="container">
+        <div class="pricing-card" id="pricing-card-main">
+
+          <div class="pricing-badge">
+            <div class="countdown-timer" id="countdown-timer">
+              <span>Oferta expira em:</span>
+              <span class="timer-nums" id="timer-display">14:59</span>
+            </div>
+
+            <h2 style="font-size: 28px; font-weight: 800; margin-bottom: 8px;">Acesso Completo e Vitalício</h2>
+            <p style="color: var(--text-secondary); font-size: 15px;">Aprovação não é sorte — é método. Você pode
+              continuar lendo PDFs passivamente e esquecendo tudo em dias, ou pode começar a estudar com inteligência
+              ativa hoje mesmo.</p>
+          </div>
+
+          <div class="price-box" id="price-container">
+            <span class="price-original">R$ 97,00</span>
+            <div class="price-current-container"
+              style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
+              <div style="display: inline-flex; align-items: baseline; gap: 6px;">
+                <span style="font-size: 18px; color: var(--text-secondary); font-weight: 700;">7x de</span>
+                <span class="price-currency">R$</span>
+                <span class="price-amount">10,95</span>
+              </div>
+              <div style="font-size: 15px; color: var(--text-secondary); margin-top: 2px;">
+                <span>ou R$ 67,00 à vista</span>
+              </div>
+            </div>
+            <p style="color: var(--accent-cyan); font-size: 13px; font-weight: 700; margin-top: 8px;">🔥 Preço
+              Promocional de Lançamento</p>
+          </div>
+
+          <div class="pricing-cta-container">
+            <a href="https://pay.hotmart.com/exemplo" class="btn btn-primary btn-large" id="main-buy-btn"
+              target="_blank" rel="noopener">
+              QUERO ESTUDAR COM IA DE FORMA SÉRIA E PASSAR NO MEU CONCURSO
+            </a>
+            <span class="price-subtext">🔒 Compra 100% segura. Acesso imediato à biblioteca de prompts.</span>
+          </div>
+
+          <!-- Features included in price -->
+          <div class="pricing-features-grid">
+            <div class="pricing-feature">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Acesso <strong>vitalício</strong> ao método e atualizações</span>
+            </div>
+            <div class="pricing-feature">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Mais de <strong>20 prompts prontos</strong> de Engenharia</span>
+            </div>
+            <div class="pricing-feature">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Manual passo a passo do <strong>NotebookLM</strong></span>
+            </div>
+            <div class="pricing-feature">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Suporte a dúvidas diretamente na plataforma</span>
+            </div>
+          </div>
+
+          <!-- Guarantee Badge -->
+          <div class="guarantee-box" id="guarantee-box">
+            <div class="guarantee-icon">🛡️</div>
+            <div class="guarantee-text">
+              <h4>Garantia Incondicional de 7 Dias</h4>
+              <p>Experimente o método sem riscos. Se você não achar que os prompts mudaram sua velocidade de retenção,
+                cancele na própria plataforma (Hotmart) em até 7 dias e eu devolvo 100% do seu dinheiro. Você não
+                precisa se justificar!</p>
+            </div>
+          </div>
+
+          <!-- Payment methods -->
+          <div class="payment-trust">
+            <span
+              style="font-size: 11px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Formas
+              de Pagamento</span>
+            <div class="trust-icons">
+              <span style="font-size: 13px; color: var(--text-secondary); font-weight: 500;">Pix &bull; Cartão de
+                Crédito &bull;</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Perguntas Frequentes</span>
+          <h2 class="section-title">Tem alguma dúvida? <span>Nós respondemos</span></h2>
+        </div>
+
+        <div class="faq-list" id="faq-accordion">
+
+          <div class="faq-card" id="faq-item-1">
+            <div class="faq-question" onclick="toggleFaq(1)">
+              <h3 class="faq-title">Preciso pagar a assinatura do ChatGPT Plus para usar o método?</h3>
+              <div class="faq-toggle-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </div>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-inner-answer">
+                Não. Todos os prompts foram otimizados e exaustivamente testados tanto em modelos gratuitos (como
+                ChatGPT 4o-mini, Google Gemini e Claude Sonnet) quanto no NotebookLM, que é uma ferramenta 100% gratuita
+                da Google. Você terá resultados excepcionais sem gastar um centavo com assinaturas.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-card" id="faq-item-2">
+            <div class="faq-question" onclick="toggleFaq(2)">
+              <h3 class="faq-title">Como vou ter acesso aos prompts?</h3>
+              <div class="faq-toggle-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </div>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-inner-answer">
+                Imediatamente após a aprovação do seu pagamento, você receberá um e-mail com seus dados de acesso
+                exclusivos à nossa plataforma de membros. Lá dentro, os prompts estão organizados de forma limpa e
+                estruturada, prontos para serem copiados e aplicados no seu estudo diário.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-card" id="faq-item-3">
+            <div class="faq-question" onclick="toggleFaq(3)">
+              <h3 class="faq-title">Funciona para quem trabalha o dia inteiro ou tem pouco tempo?</h3>
+              <div class="faq-toggle-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </div>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-inner-answer">
+                Sim! Esse método foi desenvolvido exatamente por quem tinha rotina de trabalho integral, esposa e filho
+                pequeno. A IA atua acelerando o tempo de confecção de resumos e flashcards, além de transformar leis
+                secas densas em revisões de áudio dinâmicas para você ouvir no trânsito ou na academia. É sobre estudar
+                melhor nas horas que você tem livre, não sobre estudar o dia inteiro.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-card" id="faq-item-4">
+            <div class="faq-question" onclick="toggleFaq(4)">
+              <h3 class="faq-title">O método serve para qualquer área de concurso?</h3>
+              <div class="faq-toggle-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </div>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-inner-answer">
+                Com certeza. Seja área de Tribunais, Administrativa, Policial, Fiscal ou de Controle. Os prompts e as
+                dinâmicas de Estudo Ativo foram desenhados para estruturar conteúdos de qualquer natureza, desde leis
+                secas de direito até conhecimentos de tecnologia da informação e português.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Sticky Bottom CTA -->
+  <aside class="sticky-cta" id="sticky-bottom-cta">
+    <div class="container sticky-cta-layout">
+      <div class="sticky-cta-info">
+        <span class="sticky-title">Garantir acesso ao PromptAprovado</span>
+        <span class="sticky-price"><span>R$ 97,00</span> 7x de R$ 10,95 ou R$ 67,00 à vista</span>
+      </div>
+      <a href="#pricing" class="btn btn-primary" id="sticky-cta-action-btn">Quero Meu Acesso</a>
+    </div>
+  </aside>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-content">
+      <div class="footer-logo" id="footer-logo">
+        ⚡ Prompt<span>Aprovado</span>
+      </div>
+      <div class="footer-links">
+        <a href="#hero-section" class="footer-link">Início</a>
+        <a href="#story-section" class="footer-link">Jornada</a>
+        <a href="#secret-section" class="footer-link">O Método</a>
+        <a href="#modules-section" class="footer-link">Módulos</a>
+        <a href="#pricing" class="footer-link">Garantia &amp; Preço</a>
+      </div>
+      <p class="footer-copy">&copy; 2026 Concurseiro Top 10. Todos os direitos reservados. Este site não tem vínculo
+        direto
+        com nenhuma banca examinadora ou tribunal.</p>
+    </div>
+  </footer>
+
+  <!-- Script for Interactive Components -->
+  <script>
+    // Module Accordion
+    function toggleModule(moduleNum) {
+      const allModules = document.querySelectorAll('.module-card');
+      const targetModule = document.getElementById('module-card-' + moduleNum);
+
+      const isActive = targetModule.classList.contains('active');
+
+      allModules.forEach(m => m.classList.remove('active'));
+
+      if (!isActive) {
+        targetModule.classList.add('active');
+      }
+    }
+
+    // FAQ Accordion
+    function toggleFaq(faqNum) {
+      const allFaqs = document.querySelectorAll('.faq-card');
+      const targetFaq = document.getElementById('faq-item-' + faqNum);
+
+      const isActive = targetFaq.classList.contains('active');
+
+      allFaqs.forEach(f => f.classList.remove('active'));
+
+      if (!isActive) {
+        targetFaq.classList.add('active');
+      }
+    }
+
+    // Copy Prompt utility
+    function copyPromptText(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        alert('Prompt copiado com sucesso! Você já pode colar na IA.');
+      }).catch(err => {
+        console.error('Erro ao copiar: ', err);
+      });
+    }
+
+    // Interactive Terminal simulator logic
+    const simulatorData = {
+      feynman: [
+        { type: 'user', label: 'Estudante', text: 'Vou te explicar o Art. 37, §6º da CF: Pessoas jurídicas de direito público e as de direito privado prestadoras de serviços públicos responderão pelos danos que seus agentes causarem a terceiros...' },
+        { type: 'ai', label: 'PromptAprovado Tutor', text: 'Perfeito! Esse é o tema da Responsabilidade Civil Objetiva do Estado. Mas note: quem tem direito de regresso contra o agente responsável?' },
+        { type: 'user', label: 'Estudante', text: 'Ah, o Estado tem ação de regresso contra o agente causador do dano nos casos de dolo ou culpa.' },
+        { type: 'ai', label: 'PromptAprovado Tutor', text: 'Exato! E lembre-se: a ação de regresso pressupõe condenação do Estado e dolo/culpa do agente (responsabilidade subjetiva).' }
+      ],
+      erro: [
+        { type: 'user', label: 'Estudante', text: 'Errei essa questão: a banca diz que o ato administrativo nulo não produz efeito. O que errei?' },
+        { type: 'ai', label: 'PromptAprovado Tutor', text: 'Você errou porque confundiu a regra geral com a exceção. Embora nulo, o ato produz efeitos perante terceiros de boa-fé. É a Teoria da Aparência.' },
+        { type: 'user', label: 'Estudante', text: 'Entendi, os efeitos produzidos até a anulação são válidos para proteger quem estava de boa-fé.' },
+        { type: 'ai', label: 'PromptAprovado Tutor', text: 'Perfeito! Vamos gerar um flashcard de fixação para você revisar em 3 dias?' }
+      ]
+    };
+
+    let typingTimeout;
+    function runTerminalSimulation(tabName) {
+      const terminal = document.getElementById('sim-terminal-body');
+      terminal.innerHTML = '';
+      clearTimeout(typingTimeout);
+
+      const steps = simulatorData[tabName];
+      let currentStep = 0;
+
+      function typeNextStep() {
+        if (currentStep >= steps.length) return;
+
+        const step = steps[currentStep];
+        const msgDiv = document.createElement('div');
+        msgDiv.className = `sim-message sim-msg-${step.type}`;
+
+        const labelSpan = document.createElement('span');
+        labelSpan.className = 'sim-label';
+        labelSpan.innerText = step.label;
+
+        const bubbleDiv = document.createElement('div');
+        bubbleDiv.className = 'sim-bubble';
+
+        msgDiv.appendChild(labelSpan);
+        msgDiv.appendChild(bubbleDiv);
+        terminal.appendChild(msgDiv);
+
+        // Scroll terminal to bottom
+        terminal.scrollTop = terminal.scrollHeight;
+
+        // Type effect
+        let charIndex = 0;
+        function typeChar() {
+          if (charIndex < step.text.length) {
+            // simple check if it has HTML elements, but here we just append characters or parts of it
+            bubbleDiv.innerHTML = step.text.substring(0, charIndex + 1);
+            charIndex++;
+            terminal.scrollTop = terminal.scrollHeight;
+            typingTimeout = setTimeout(typeChar, 12);
+          } else {
+            currentStep++;
+            typingTimeout = setTimeout(typeNextStep, 1500);
+          }
+        }
+
+        typeChar();
+      }
+
+      typeNextStep();
+    }
+
+    function switchSimulatorTab(tabName) {
+      document.querySelectorAll('.sim-tab-btn').forEach(btn => btn.classList.remove('active'));
+      if (tabName === 'feynman') {
+        document.getElementById('tab-btn-feynman').classList.add('active');
+      } else {
+        document.getElementById('tab-btn-erro').classList.add('active');
+      }
+      runTerminalSimulation(tabName);
+    }
+
+    // Start default simulation
+    window.addEventListener('DOMContentLoaded', () => {
+      runTerminalSimulation('feynman');
+      startCountdownTimer();
+    });
+
+    // Countdown Timer logic
+    function startCountdownTimer() {
+      const timerDisplay = document.getElementById('timer-display');
+      let timeRemaining = 14 * 60 + 59; // 14:59 in seconds
+
+      const interval = setInterval(() => {
+        const minutes = Math.floor(timeRemaining / 60);
+        const seconds = timeRemaining % 60;
+
+        timerDisplay.innerText = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+        if (timeRemaining <= 0) {
+          // Restart to keep the urgency feeling dynamic for new visitors
+          timeRemaining = 14 * 60 + 59;
+        } else {
+          timeRemaining--;
+        }
+      }, 1000);
+    }
+
+    // Sticky Bottom CTA display logic on scroll
+    window.addEventListener('scroll', () => {
+      const stickyCta = document.getElementById('sticky-bottom-cta');
+      const pricingSection = document.getElementById('pricing');
+      const heroSection = document.getElementById('hero-section');
+
+      // Show when user scrolls past hero section, but hide when they reach the pricing card itself
+      const scrollPosition = window.scrollY;
+      const heroHeight = heroSection.offsetHeight;
+      const pricingTop = pricingSection.offsetTop;
+
+      if (scrollPosition > heroHeight && scrollPosition < (pricingTop - 300)) {
+        stickyCta.classList.add('visible');
+      } else {
+        stickyCta.classList.remove('visible');
+      }
+    });
+  </script>
+</body>
+
+</html>

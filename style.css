@@ -1267,6 +1267,7 @@ header {
   transform: translateY(100%);
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
 }
 
 .sticky-cta.visible {
@@ -1522,7 +1523,7 @@ footer {
   .sticky-cta-layout {
     flex-direction: column;
     gap: 8px;
-    align-items: stretch;
+    align-items: center;
     text-align: center;
   }
   
@@ -1545,8 +1546,9 @@ footer {
   }
   
   #sticky-cta-action-btn {
-    width: 100% !important;
-    padding: 12px 20px !important;
+    width: auto !important;
+    max-width: 100%;
+    padding: 12px 28px !important;
     font-size: 14px !important;
   }
 

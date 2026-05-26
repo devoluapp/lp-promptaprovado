@@ -2,978 +2,1704 @@
 <html lang="pt-BR">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PromptAprovado | Engenharia de Prompt e NotebookLM para Concursos</title>
-  <meta name="description"
-    content="Descubra o método exato de Estudo Ativo com Inteligência Artificial que transformou um concurseiro comum de 42 anos em aprovado em 6º lugar no TRT-2. Comandos prontos de IA para copiar e colar.">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PromptAprovado | Engenharia de Prompt e NotebookLM para Concursos</title>
+    <meta name="description"
+        content="Descubra o método exato de Estudo Ativo com Inteligência Artificial que transformou um concurseiro comum de 42 anos em aprovado em 6º lugar no TRT-2. Comandos prontos de IA para copiar e colar.">
 
-  <!-- Favicon / Meta properties -->
-  <link rel="icon"
-    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
-  <link rel="stylesheet" href="style.css">
+    <!-- Favicon / Meta properties -->
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
 
-  <!-- Meta Pixel Code -->
-  <script>
-    !function (f, b, e, v, n, t, s) {
-      if (f.fbq) return; n = f.fbq = function () {
-        n.callMethod ?
-          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-      };
-      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
-      n.queue = []; t = b.createElement(e); t.async = !0;
-      t.src = v; s = b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t, s)
-    }(window, document, 'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '990961440342976');
-    fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=990961440342976&ev=PageView&noscript=1" /></noscript>
-  <!-- End Meta Pixel Code -->
+    <!-- FontAwesome CDN for elegant minimal icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts: Plus Jakarta Sans and Inter matching index.html -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Meta Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '990961440342976');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=990961440342976&ev=PageView&noscript=1" /></noscript>
+    <!-- End Meta Pixel Code -->
+
+    <style>
+        :root {
+            /* Identidade Visual de index.html */
+            --bg: #080c14;
+            --surface: #0d1321;
+            --surface2: rgba(22, 30, 49, 0.4);
+            --border: rgba(255, 255, 255, 0.08);
+
+            --gold: #ffe259;
+            --gold-dim: #ffa751;
+
+            --accent: #00f2fe;
+            --accent-blue: #4facfe;
+            --accent-purple: #8a2be2;
+            --accent-pink: #ff007f;
+            --accent-gold: #ffd700;
+            --accent-green: #10b981;
+            --accent-red: #ef4444;
+
+            --text: #f8fafc;
+            --muted: #94a3b8;
+            --muted-dark: #64748b;
+
+            --green: #10b981;
+            --danger: #ef4444;
+            --r: 16px;
+
+            /* Gradients */
+            --gradient-primary: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+            --gradient-secondary: linear-gradient(135deg, #b5179e 0%, #7209b7 100%);
+            --gradient-gold: linear-gradient(135deg, #ffe259 0%, #ffa751 100%);
+            --gradient-glow: linear-gradient(135deg, rgba(0, 242, 254, 0.15) 0%, rgba(138, 43, 226, 0.15) 100%);
+
+            /* Typography */
+            --font-headings: 'Plus Jakarta Sans', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--font-body);
+            font-size: 16px;
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ─── GLOW BLOBS ────────────────────── */
+        .glow-blob {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 242, 254, 0.1) 0%, rgba(79, 172, 254, 0.04) 50%, transparent 100%);
+            filter: blur(60px);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .glow-blob-1 {
+            top: 5%;
+            left: -150px;
+        }
+
+        .glow-blob-2 {
+            top: 40%;
+            right: -150px;
+            background: radial-gradient(circle, rgba(138, 43, 226, 0.1) 0%, rgba(255, 0, 127, 0.03) 50%, transparent 100%);
+        }
+
+        .glow-blob-3 {
+            bottom: 10%;
+            left: -100px;
+            background: radial-gradient(circle, rgba(0, 242, 254, 0.08) 0%, transparent 70%);
+        }
+
+        /* ─── TOPBAR ─────────────────────────── */
+        .topbar {
+            background: var(--surface);
+            color: var(--text);
+            text-align: center;
+            padding: 12px 16px;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.03em;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+        }
+
+        .topbar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--gradient-primary);
+        }
+
+        .topbar span {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .topbar strong {
+            color: var(--accent-gold);
+        }
+
+        /* ─── NAV ────────────────────────────── */
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 24px;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            background: rgba(8, 12, 20, 0.9);
+            backdrop-filter: blur(12px);
+            z-index: 100;
+        }
+
+        .logo {
+            font-family: var(--font-headings);
+            font-weight: 800;
+            font-size: 22px;
+            letter-spacing: 0.5px;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .logo::before {
+            content: '⚡';
+            color: var(--accent);
+            font-size: 20px;
+        }
+
+        .logo span {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-cta {
+            background: var(--gradient-primary);
+            color: #080c14;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            letter-spacing: 0.04em;
+            transition: var(--transition-smooth);
+            display: none;
+            font-family: var(--font-headings);
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(0, 242, 254, 0.25);
+        }
+
+        @media(min-width:600px) {
+            .nav-cta {
+                display: inline-block;
+            }
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(0, 242, 254, 0.4);
+            filter: brightness(1.1);
+        }
+
+        /* ─── HERO ───────────────────────────── */
+        .hero {
+            position: relative;
+            overflow: hidden;
+            padding: 80px 24px 80px;
+            text-align: center;
+        }
+
+        .hero h1,
+        .pain h2,
+        .story h2,
+        .method h2,
+        .pricing h2,
+        .faq h2,
+        .final-cta h2 {
+            font-family: var(--font-headings);
+            font-weight: 800;
+            color: var(--text);
+        }
+
+        .hero h1 {
+            font-size: clamp(32px, 5vw, 56px);
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            max-width: 900px;
+            margin: 0 auto 24px;
+        }
+
+        .hero h1 em {
+            font-style: normal;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0, 242, 254, 0.08);
+            border: 1px solid rgba(0, 242, 254, 0.2);
+            border-radius: 100px;
+            padding: 6px 16px;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-bottom: 28px;
+            font-family: var(--font-headings);
+        }
+
+        .hero-sub {
+            font-size: clamp(15px, 2.5vw, 18px);
+            color: var(--muted);
+            max-width: 650px;
+            margin: 0 auto 16px;
+            font-weight: 400;
+            line-height: 1.7;
+        }
+
+        .hero-proof {
+            font-size: 13.5px;
+            color: var(--muted);
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .hero-proof strong {
+            color: var(--green);
+            font-weight: 600;
+        }
+
+        .cta-primary {
+            display: inline-block;
+            background: var(--gradient-primary);
+            color: #080c14;
+            font-weight: 800;
+            font-size: 15px;
+            padding: 18px 40px;
+            border-radius: 12px;
+            text-decoration: none;
+            letter-spacing: 0.03em;
+            transition: var(--transition-smooth);
+            box-shadow: 0 4px 25px rgba(0, 242, 254, 0.25);
+            font-family: var(--font-headings);
+            text-transform: uppercase;
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 35px rgba(0, 242, 254, 0.45);
+            filter: brightness(1.1);
+        }
+
+        .cta-sub {
+            display: block;
+            margin-top: 14px;
+            font-size: 12px;
+            color: var(--muted-dark);
+        }
+
+        .cta-sub .price-highlight {
+            color: var(--green);
+            font-weight: 600;
+        }
+
+        /* stats bar */
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            margin-top: 64px;
+            border: 1px solid var(--border);
+            border-radius: var(--r);
+            background: var(--surface2);
+            backdrop-filter: blur(12px);
+            max-width: 750px;
+            margin-inline: auto;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .stat {
+            flex: 1;
+            padding: 24px 16px;
+            text-align: center;
+            border-right: 1px solid var(--border);
+            transition: var(--transition-smooth);
+        }
+
+        .stat:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .stat:last-child {
+            border-right: none;
+        }
+
+        .stat-num {
+            font-family: var(--font-headings);
+            font-weight: 800;
+            font-size: 32px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.1;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            color: var(--muted);
+            margin-top: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* ─── DOR ────────────────────────────── */
+        .pain {
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 80px 24px;
+            position: relative;
+        }
+
+        .pain-inner {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        .pain h2 {
+            font-size: clamp(26px, 4.5vw, 40px);
+            line-height: 1.2;
+            margin-bottom: 40px;
+            text-align: center;
+            letter-spacing: -0.01em;
+        }
+
+        .pain-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+
+        .pain-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            background: rgba(239, 68, 68, 0.03);
+            border: 1px solid rgba(239, 68, 68, 0.1);
+            border-radius: 12px;
+            padding: 18px 20px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            transition: var(--transition-smooth);
+        }
+
+        .pain-list li:hover {
+            border-color: rgba(239, 68, 68, 0.25);
+            background: rgba(239, 68, 68, 0.05);
+            transform: translateX(4px);
+        }
+
+        .pain-list li .icon {
+            font-size: 16px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .pain-transition {
+            background: rgba(0, 242, 254, 0.05);
+            border: 1px solid rgba(0, 242, 254, 0.15);
+            border-radius: 12px;
+            padding: 20px 24px;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--accent);
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 242, 254, 0.03);
+        }
+
+        /* ─── STORY ──────────────────────────── */
+        .story {
+            padding: 100px 24px;
+        }
+
+        .section-label {
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 12px;
+            display: inline-block;
+            font-family: var(--font-headings);
+        }
+
+        .story-inner {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .story h2 {
+            font-size: clamp(26px, 5vw, 42px);
+            line-height: 1.2;
+            margin-bottom: 36px;
+            letter-spacing: -0.01em;
+        }
+
+        .story h2 em {
+            font-style: normal;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .story p {
+            color: var(--muted);
+            margin-bottom: 24px;
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+        .story p strong {
+            color: var(--text);
+        }
+
+        blockquote {
+            border-left: 3px solid var(--accent);
+            padding: 20px 24px;
+            background: rgba(0, 242, 254, 0.03);
+            border-radius: 0 12px 12px 0;
+            margin: 36px 0;
+            font-style: italic;
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        blockquote strong {
+            color: var(--accent);
+            font-style: normal;
+        }
+
+        /* timeline */
+        .timeline {
+            margin: 56px 0;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 19px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, transparent, var(--border) 10%, var(--border) 90%, transparent);
+        }
+
+        .tl-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 28px;
+            align-items: flex-start;
+        }
+
+        .tl-dot {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            background: var(--surface2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            flex-shrink: 0;
+            z-index: 1;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            transition: var(--transition-smooth);
+        }
+
+        .tl-dot.win {
+            border-color: var(--accent);
+            background: rgba(0, 242, 254, 0.1);
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
+        }
+
+        .tl-body {
+            padding-top: 6px;
+        }
+
+        .tl-year {
+            font-size: 11px;
+            color: var(--muted-dark);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 4px;
+            font-weight: 700;
+        }
+
+        .tl-title {
+            font-weight: 700;
+            font-size: 15px;
+            margin-bottom: 4px;
+            color: var(--text);
+        }
+
+        .tl-desc {
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        /* result card */
+        .result-card {
+            background: linear-gradient(135deg, rgba(0, 242, 254, 0.08), rgba(79, 172, 254, 0.02));
+            border: 1px solid rgba(0, 242, 254, 0.2);
+            border-radius: var(--r);
+            padding: 36px 28px;
+            text-align: center;
+            margin-top: 48px;
+            box-shadow: 0 15px 35px rgba(0, 242, 254, 0.05);
+        }
+
+        .result-card .trophy-large {
+            font-size: 44px;
+            display: block;
+            margin-bottom: 16px;
+        }
+
+        .result-card h3 {
+            font-family: var(--font-headings);
+            font-weight: 800;
+            font-size: 26px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+            margin-bottom: 12px;
+        }
+
+        .result-card p {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        /* ─── METHOD ─────────────────────────── */
+        .method {
+            padding: 100px 24px;
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .method-inner {
+            max-width: 780px;
+            margin: 0 auto;
+        }
+
+        .method h2 {
+            font-size: clamp(26px, 5vw, 42px);
+            margin-bottom: 16px;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+        }
+
+        .method h2 em {
+            font-style: normal;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .method-sub {
+            color: var(--muted);
+            font-size: 15px;
+            margin-bottom: 48px;
+            max-width: 580px;
+            line-height: 1.6;
+        }
+
+        /* feynman demo */
+        .chat-demo {
+            border: 1px solid var(--border);
+            border-radius: var(--r);
+            overflow: hidden;
+            margin-bottom: 56px;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
+            background: var(--bg);
+        }
+
+        .chat-header {
+            background: var(--surface2);
+            border-bottom: 1px solid var(--border);
+            padding: 14px 20px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--muted);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .chat-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--green);
+            box-shadow: 0 0 8px var(--green);
+        }
+
+        .chat-body {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .msg {
+            max-width: 85%;
+        }
+
+        .msg-user {
+            align-self: flex-end;
+        }
+
+        .msg-ai {
+            align-self: flex-start;
+        }
+
+        .msg-label {
+            font-size: 10px;
+            color: var(--muted-dark);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 700;
+        }
+
+        .msg-user .msg-label {
+            text-align: right;
+        }
+
+        .msg-bubble {
+            border-radius: 12px;
+            padding: 14px 18px;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .msg-user .msg-bubble {
+            background: linear-gradient(135deg, rgba(0, 242, 254, 0.12) 0%, rgba(79, 172, 254, 0.03) 100%);
+            border: 1px solid rgba(0, 242, 254, 0.25);
+            color: var(--text);
+        }
+
+        .msg-ai .msg-bubble {
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+        }
+
+        .msg-ai .msg-bubble .alert {
+            color: var(--accent-gold);
+            font-weight: 700;
+            display: block;
+            margin-top: 10px;
+        }
+
+        /* modules grid */
+        .modules {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .module-card {
+            border: 1px solid var(--border);
+            border-radius: var(--r);
+            padding: 24px;
+            background: var(--surface2);
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            transition: var(--transition-smooth);
+        }
+
+        .module-card:hover {
+            border-color: rgba(0, 242, 254, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(0, 242, 254, 0.05);
+        }
+
+        .mod-num {
+            font-family: var(--font-headings);
+            font-weight: 800;
+            font-size: 32px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            opacity: 0.6;
+            line-height: 1;
+            flex-shrink: 0;
+            width: 40px;
+        }
+
+        .mod-title {
+            font-weight: 700;
+            font-size: 16px;
+            margin-bottom: 6px;
+            color: var(--text);
+        }
+
+        .mod-desc {
+            font-size: 13.5px;
+            color: var(--muted);
+            line-height: 1.65;
+        }
+
+        .mod-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 12px;
+        }
+
+        .tag {
+            font-size: 11px;
+            padding: 4px 12px;
+            border-radius: 100px;
+            background: rgba(0, 242, 254, 0.06);
+            border: 1px solid rgba(0, 242, 254, 0.15);
+            color: var(--accent);
+            font-family: var(--font-headings);
+            font-weight: 600;
+        }
+
+        /* ─── PRICING ────────────────────────── */
+        .pricing {
+            padding: 100px 24px;
+            text-align: center;
+        }
+
+        .pricing h2 {
+            font-size: clamp(28px, 5vw, 44px);
+            margin-bottom: 8px;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+        }
+
+        .pricing-sub {
+            color: var(--muted);
+            font-size: 15px;
+            margin-bottom: 48px;
+        }
+
+        .pricing-card {
+            max-width: 480px;
+            margin: 0 auto;
+            background: var(--surface);
+            border: 1px solid rgba(0, 242, 254, 0.25);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(0, 242, 254, 0.08);
+        }
+
+        .pricing-header {
+            background: linear-gradient(135deg, rgba(0, 242, 254, 0.08) 0%, rgba(79, 172, 254, 0.01) 100%);
+            padding: 36px 24px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .pricing-tag {
+            display: inline-block;
+            background: var(--gradient-secondary);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 800;
+            padding: 6px 16px;
+            border-radius: 100px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            font-family: var(--font-headings);
+            box-shadow: 0 4px 12px rgba(181, 23, 158, 0.3);
+        }
+
+        .price-main {
+            font-family: var(--font-headings);
+            font-weight: 800;
+            font-size: 64px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1;
+            margin: 8px 0;
+        }
+
+        .price-main sup {
+            font-size: 28px;
+            vertical-align: super;
+        }
+
+        .price-main .cents {
+            font-size: 36px;
+        }
+
+        .price-old {
+            font-size: 14px;
+            color: var(--muted-dark);
+            text-decoration: line-through;
+            margin-bottom: 4px;
+        }
+
+        .price-installments {
+            font-size: 14px;
+            color: var(--muted);
+            margin-top: 8px;
+        }
+
+        .price-installments strong {
+            color: var(--text);
+            font-weight: 700;
+        }
+
+        .pricing-features {
+            padding: 32px 24px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .feat-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 14px;
+            margin-bottom: 16px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .feat-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .feat-icon {
+            color: var(--green);
+            font-size: 14px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .pricing-footer {
+            padding: 32px 24px;
+        }
+
+        .cta-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .guarantee-pill {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: var(--muted);
+            padding: 8px 18px;
+            background: rgba(16, 185, 129, 0.06);
+            border: 1px solid rgba(16, 185, 129, 0.15);
+            border-radius: 100px;
+            font-family: var(--font-headings);
+            font-weight: 600;
+        }
+
+        .guarantee-pill .g-icon {
+            font-size: 14px;
+        }
+
+        .payment-methods {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 20px;
+            font-size: 12px;
+            color: var(--muted-dark);
+        }
+
+        .pm-chip {
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 11px;
+            color: var(--muted);
+            font-family: var(--font-headings);
+            font-weight: 600;
+        }
+
+        /* guarantee section */
+        .guarantee {
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 64px 24px;
+            position: relative;
+        }
+
+        .guarantee-inner {
+            max-width: 640px;
+            margin: 0 auto;
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+        }
+
+        .g-badge {
+            background: rgba(16, 185, 129, 0.08);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: 16px;
+            width: 72px;
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            flex-shrink: 0;
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.05);
+        }
+
+        .guarantee-inner h3 {
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+
+        .guarantee-inner p {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        @media(max-width:500px) {
+            .guarantee-inner {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        }
+
+        /* ─── FAQ ────────────────────────────── */
+        .faq {
+            padding: 80px 24px;
+        }
+
+        .faq-inner {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        .faq h2 {
+            font-size: clamp(26px, 4.5vw, 36px);
+            margin-bottom: 40px;
+            text-align: center;
+            letter-spacing: -0.01em;
+        }
+
+        details {
+            border: 1px solid var(--border);
+            border-radius: var(--r);
+            margin-bottom: 12px;
+            background: var(--surface2);
+            overflow: hidden;
+            transition: var(--transition-smooth);
+        }
+
+        details:hover {
+            border-color: rgba(0, 242, 254, 0.25);
+        }
+
+        summary {
+            padding: 20px 24px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 15px;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            user-select: none;
+            font-family: var(--font-headings);
+            color: var(--text);
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: '+';
+            font-size: 20px;
+            color: var(--muted);
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+
+        details[open] summary::after {
+            content: '−';
+            color: var(--accent);
+        }
+
+        details p {
+            padding: 0 24px 20px;
+            font-size: 14px;
+            color: var(--muted);
+            line-height: 1.75;
+        }
+
+        /* ─── FINAL CTA ──────────────────────── */
+        .final-cta {
+            padding: 100px 24px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta h2 {
+            font-size: clamp(28px, 6vw, 52px);
+            line-height: 1.15;
+            max-width: 800px;
+            margin: 0 auto 24px;
+            letter-spacing: -0.01em;
+        }
+
+        .final-cta h2 em {
+            font-style: normal;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .final-cta p {
+            max-width: 550px;
+            margin: 0 auto 36px;
+            color: var(--muted);
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        /* ─── FOOTER ─────────────────────────── */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 32px 24px;
+            text-align: center;
+            font-size: 13px;
+            color: var(--muted-dark);
+        }
+
+        /* ─── TIMER ──────────────────────────── */
+        .timer-bar {
+            background: rgba(239, 68, 68, 0.08);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            border-radius: 8px;
+            padding: 12px 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            font-size: 13px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            text-align: center;
+            font-family: var(--font-headings);
+        }
+
+        .timer-bar .fire {
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+        }
+
+        .timer-bar strong {
+            color: var(--danger);
+        }
+
+        #countdown {
+            font-family: var(--font-headings);
+            font-weight: 800;
+            font-size: 22px;
+            letter-spacing: 1px;
+            color: var(--danger);
+        }
+
+        /* responsive */
+        @media(max-width:600px) {
+            .hero-stats {
+                flex-direction: column;
+            }
+
+            .stat {
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .stat:last-child {
+                border-bottom: none;
+            }
+        }
+
+        /* Sticky Bottom CTA */
+        .sticky-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(8, 12, 20, 0.95);
+            backdrop-filter: blur(12px);
+            border-top: 1px solid var(--border);
+            padding: 14px 24px;
+            z-index: 99;
+            transform: translateY(100%);
+            transition: var(--transition-smooth);
+            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .sticky-cta.visible {
+            transform: translateY(0);
+        }
+
+        .sticky-cta-layout {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .sticky-cta-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .sticky-title {
+            font-family: var(--font-headings);
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .sticky-price {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        .sticky-price strong {
+            color: var(--green);
+        }
+
+        .sticky-btn {
+            background: var(--gradient-primary);
+            color: #080c14;
+            font-size: 13px;
+            font-weight: 800;
+            padding: 10px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            letter-spacing: 0.03em;
+            transition: var(--transition-smooth);
+            font-family: var(--font-headings);
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(0, 242, 254, 0.25);
+            text-align: center;
+        }
+
+        .sticky-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(0, 242, 254, 0.4);
+            filter: brightness(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .sticky-cta {
+                padding: 12px 16px;
+            }
+            .sticky-cta-layout {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .sticky-title {
+                font-size: 12px;
+            }
+            .sticky-price {
+                font-size: 11px;
+            }
+            .sticky-btn {
+                padding: 8px 16px;
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .sticky-cta-layout {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            .sticky-cta-info {
+                align-items: center;
+            }
+            .sticky-btn {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-  <!-- Background Glow Elements -->
-  <div class="glow-blob glow-blob-1"></div>
-  <div class="glow-blob glow-blob-2"></div>
-  <div class="glow-blob glow-blob-3"></div>
+    <!-- Background Glow Elements -->
+    <div class="glow-blob glow-blob-1"></div>
+    <div class="glow-blob glow-blob-2"></div>
+    <div class="glow-blob glow-blob-3"></div>
 
-  <!-- Header -->
-  <header>
-    <div class="container header-container">
-      <a href="#" class="logo" id="header-logo">
-        <div class="logo-icon">⚡</div>
-        <div class="logo-text">Prompt<span>Aprovado</span></div>
-      </a>
-      <div class="header-badge" id="homologado-badge">
-        <span class="badge-dot"></span>
-        Edição 2026
-      </div>
+    <!-- TOPBAR -->
+    <div class="topbar">
+        <i class="fa-solid fa-fire" style="color: var(--accent-gold); margin-right: 4px;"></i> Preço de lançamento
+        <strong>por tempo limitado</strong> — <span>R$ 67 à vista ou 9x de R$ 8,80</span>
     </div>
-  </header>
 
-  <main>
-    <!-- Hero Section -->
-    <section class="hero" id="hero-section">
-      <div class="container hero-layout">
-        <div class="hero-content">
-          <span class="hero-tagline">Inteligência Artificial para Concursos</span>
-          <h1 class="hero-title" id="main-headline">
-            Eu não sou um gênio. Reprovei em 2018, reprovei no início de 2025... mas passei em <span>6º lugar para
-              Analista do TRT-2</span> usando Inteligência Artificial para fazer o que os cursinhos não te ensinam:
-            Estudo Ativo.
-          </h1>
-          <p class="hero-subtitle" id="main-subheadline">
-            Descubra o método exato de Engenharia de Prompt e uso do NotebookLM que transformou um concurseiro comum de
-            42 anos, pai de família e com rotina de trabalho integral, em um aprovado no top 10 de um dos tribunais
-            mais concorridos do país. <strong>Sem fórmulas mágicas e sem enrolação.</strong>
-          </p>
-          <div class="hero-ctas">
-            <a href="https://go.hotmart.com/B105991515E" class="btn btn-primary btn-large" id="hero-cta-btn"
-              target="_blank" rel="noopener" onclick="fbq('track', 'InitiateCheckout');">
-              QUERO ESTUDAR COM IA E PASSAR NO CONCURSO
-            </a>
-          </div>
-          <div class="hero-benefits">
-            <div class="benefit-item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
-                stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              Acesso Vitalício
-            </div>
-            <div class="benefit-item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
-                stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              Biblioteca com +20 Prompts
-            </div>
-            <div class="benefit-item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
-                stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              Atualizações Inclusas
-            </div>
-          </div>
-        </div>
+    <!-- NAV -->
+    <nav>
+        <div class="logo">Prompt<span>Aprovado</span></div>
+        <a href="https://go.hotmart.com/B105991515E" class="nav-cta" target="_blank" rel="noopener"
+            onclick="fbq('track', 'InitiateCheckout');">QUERO ACESSO →</a>
+    </nav>
 
-        <!-- Interactive AI Simulator -->
-        <div class="simulator-widget" id="ai-simulator">
-          <div class="sim-header">
-            <span class="demo-tag">Demonstração Interativa</span>
-            <div class="sim-tabs">
-              <button class="sim-tab-btn active" id="tab-btn-feynman" onclick="switchSimulatorTab('feynman')">Feynman
-                Reverso</button>
-              <button class="sim-tab-btn" id="tab-btn-erro" onclick="switchSimulatorTab('erro')">Análise de
-                Erro</button>
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-badge">⚡ Método Testado — Aprovação Real</div>
+        <h1>Você estuda horas. <em>Mas não retém quase nada.</em> Aqui está o porquê.</h1>
+        <p class="hero-sub">
+            A leitura passiva de PDFs e videoaulas infinitas não gera aprovação.
+            Estudo Ativo, usando a IA como ferramenta, sim — e eu tenho <strong>6º lugar geral no TRT-2</strong> para
+            provar.
+        </p>
+        <p class="hero-proof">
+            <i class="fa-solid fa-circle-check" style="color: var(--accent-green); margin-right: 4px;"></i> Roberto A. —
+            42 anos, pai de família — aprovado em 2026 usando exatamente este método. <strong>Aprovado</strong>
+        </p>
+
+        <a href="https://go.hotmart.com/B105991515E" class="cta-primary" target="_blank" rel="noopener"
+            onclick="fbq('track', 'InitiateCheckout');">
+            QUERO OS PROMPTS DE APROVAÇÃO →
+        </a>
+        <span class="cta-sub">
+            <span class="price-highlight">R$ 67 à vista</span> · Acesso imediato · Garantia de 7 dias
+        </span>
+
+        <div class="hero-stats">
+            <div class="stat">
+                <span class="stat-num">6º</span>
+                <div class="stat-label">Lugar Geral TRT-2</div>
             </div>
-          </div>
-          <div class="sim-window">
-            <div class="sim-terminal-header">
-              <span class="term-dot term-dot-red"></span>
-              <span class="term-dot term-dot-yellow"></span>
-              <span class="term-dot term-dot-green"></span>
-              <span class="term-title">feynman_reverso.sh</span>
+            <div class="stat">
+                <span class="stat-num">+20</span>
+                <div class="stat-label">Prompts Prontos</div>
             </div>
-            <div class="sim-terminal-body" id="sim-terminal-body">
-              <!-- Chat items get dynamically generated/typed via JS -->
+            <div class="stat">
+                <span class="stat-num">5</span>
+                <div class="stat-label">Módulos Práticos</div>
             </div>
-          </div>
+            <div class="stat">
+                <span class="stat-num">∞</span>
+                <div class="stat-label">Acesso Vitalício</div>
+            </div>
         </div>
-      </div>
     </section>
 
-    <!-- Social Proof Metrics -->
-    <section class="metrics-bar" id="metrics-section">
-      <div class="container metrics-layout">
-        <div class="metric-card" id="metric-lugar">
-          <span class="metric-number">6º</span>
-          <span class="metric-label">Lugar Geral Analista TRT-2</span>
-        </div>
-        <div class="metric-card" id="metric-prompts">
-          <span class="metric-number">20+</span>
-          <span class="metric-label">Prompts Prontos de Engenharia</span>
-        </div>
-        <div class="metric-card" id="metric-modulos">
-          <span class="metric-number metric-number-purple">5</span>
-          <span class="metric-label">Módulos de Estudo Ativo</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- The Journey / Story Section -->
-    <section class="story-section" id="story-section">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-badge">Minha Jornada</span>
-          <h2 class="section-title">De reprovações seguidas ao <span>Top 10</span> do TRT-2</h2>
-        </div>
-        <div class="story-grid">
-          <!-- Interactive/Animated Timeline -->
-          <div class="story-visual" id="story-timeline-col">
-            <div class="timeline-container">
-              <div class="timeline-item success" id="timeline-2012">
-                <div class="timeline-dot"></div>
-                <div class="timeline-year">2012</div>
-                <div class="timeline-title">Primeiro cargo técnico</div>
-                <div class="timeline-desc">Aprovado no TRT-2, mas lá atrás (1500+). Aprovado no final da validade.</div>
-              </div>
-              <div class="timeline-item fail" id="timeline-2018">
-                <div class="timeline-dot"></div>
-                <div class="timeline-year">2018</div>
-                <div class="timeline-title">Primeira tentativa para Analista</div>
-                <div class="timeline-desc">Reprovado logo de cara. Estudo passivo tradicional não funcionou.</div>
-              </div>
-              <div class="timeline-item fail" id="timeline-2018-2024">
-                <div class="timeline-dot"></div>
-                <div class="timeline-year">2018 - 2024</div>
-                <div class="timeline-title">Fila do "quase"</div>
-                <div class="timeline-desc">Fiquei na fila da Justiça Eleitoral, TRT-12 e TRF-3. Quase lá, mas sem vaga.
-                </div>
-              </div>
-              <div class="timeline-item fail" id="timeline-2025">
-                <div class="timeline-dot"></div>
-                <div class="timeline-year">Início de 2025</div>
-                <div class="timeline-title">O Pior Soco (TRT-15)</div>
-                <div class="timeline-desc">Reprovado na objetiva, nem tive a redação/discursiva corrigida. Frustração
-                  total.</div>
-              </div>
-              <div class="timeline-item success" id="timeline-2026">
-                <div class="timeline-dot"></div>
-                <div class="timeline-year">2026 (Hoje)</div>
-                <div class="timeline-title">A Grande Virada (TRT-2)</div>
-                <div class="timeline-desc">🥇 6º Lugar Geral para Analista Judiciário do TRT-2. Homologado e aguardando
-                  posse!</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Written Copy -->
-          <div class="story-content" id="story-text-col">
-            <h3>Se você acha que só passa em tribunal quem é jovem, tem o dia todo livre ou é um gênio da memorização...
-              eu preciso te contar uma coisa.</h3>
-            <p>
-              Em 2012, eu assumi o cargo de Técnico no TRT-2. Mas eu não passei nas cabeças. Eu passei lá atrás, em
-              milésimo quinhentos e pouco, em um concurso atípico que chamou muita gente no final do prazo. Os anos se
-              passaram, eu já estava estável, mas eu queria o cargo de Analista.
-            </p>
-            <p>
-              Entre 2018 e 2025, eu prestei 6 concursos para Analista de Tribunais Federais. Sabe o que aconteceu?
-            </p>
-            <ul>
-              <li><strong>Reprovei</strong> logo de cara em 2018.</li>
-              <li>Fiquei na fila do "quase" na Justiça Eleitoral, TRT-12 e TRF-3.</li>
-              <li>Em 2025, o pior soco: <strong>fui reprovado na objetiva do TRT-15, nem tive minha discursiva
-                  corrigida.</strong></li>
+    <!-- DOR -->
+    <section class="pain">
+        <div class="pain-inner">
+            <h2>Você se reconhece aqui?</h2>
+            <ul class="pain-list">
+                <li><span class="icon"><i class="fa-solid fa-file-circle-xmark"
+                            style="color: var(--accent-red);"></i></span> Você leu o PDF inteiro… e na hora da prova não
+                    lembrou de nada.</li>
+                <li><span class="icon"><i class="fa-solid fa-circle-play" style="color: var(--accent-red);"></i></span>
+                    Você assiste videoaula atrás de videoaula, mas a sensação é de nunca terminar.</li>
+                <li><span class="icon"><i class="fa-solid fa-clock" style="color: var(--accent-red);"></i></span> Você
+                    tem rotina apertada (trabalho, família) e não sabe como otimizar o tempo que tem.</li>
+                <li><span class="icon"><i class="fa-solid fa-arrow-trend-down"
+                            style="color: var(--accent-red);"></i></span> Você já chegou perto — até classificou — mas
+                    sem conseguir a vaga.</li>
+                <li><span class="icon"><i class="fa-solid fa-robot" style="color: var(--accent-red);"></i></span> Você
+                    usou ChatGPT, mas ficou com respostas genéricas que não ajudaram de verdade.</li>
             </ul>
-            <p>
-              A grande virada de chave aconteceu no mesmo ano. Depois da reprovação na prova do TRT-15 e <strong>não
-                conseguir aprovação nem na prova objetiva</strong>. A frustração foi enorme. Eu tinha 42 anos, uma
-              jornada de trabalho integral, esposa, um filho de 4 anos, na época, para dar atenção e o peso psicológico
-              de ter
-              perdido meu irmão recentemente — uma perda que me devastou, mas que também virou meu combustível para
-              buscar uma condição melhor para a minha família.
-            </p>
+            <div class="pain-transition">
+                O problema não é sua dedicação. É a técnica. <strong>Estudo Ativo com IA muda isso.</strong>
+            </div>
+        </div>
+    </section>
+
+    <!-- STORY -->
+    <section class="story">
+        <div class="story-inner">
+            <span class="section-label">Quem está por trás do método</span>
+            <h2>Eu sou Roberto Tavares e saí de 7 tentativas frustradas ao <em>Top 10</em> do TRT-2</h2>
+
+            <div class="timeline">
+                <div class="tl-item">
+                    <div class="tl-dot"><i class="fa-solid fa-circle-xmark" style="color: var(--accent-red);"></i></div>
+                    <div class="tl-body">
+                        <div class="tl-year">2018</div>
+                        <div class="tl-title">Reprovado na primeira tentativa como Analista</div>
+                        <div class="tl-desc">Estudo passivo tradicional.</div>
+                    </div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-dot"><i class="fa-solid fa-clock-rotate-left" style="color: var(--muted-dark);"></i>
+                    </div>
+                    <div class="tl-body">
+                        <div class="tl-year">2018–2024</div>
+                        <div class="tl-title">A fila do "quase"</div>
+                        <div class="tl-desc">Justiça Eleitoral, TRT-12, TRF-3. Classificado, mas longe. A vaga nunca
+                            veio.</div>
+                    </div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-dot"><i class="fa-solid fa-circle-exclamation" style="color: var(--accent-red);"></i>
+                    </div>
+                    <div class="tl-body">
+                        <div class="tl-year">Início de 2025</div>
+                        <div class="tl-title">O pior baque — TRT-15</div>
+                        <div class="tl-desc">Reprovado na objetiva. Nem teve a discursiva corrigida. 42 anos, rotina
+                            integral, filho pequeno, luto recente. Frustração total.</div>
+                    </div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-dot win"><i class="fa-solid fa-trophy" style="color: var(--accent);"></i></div>
+                    <div class="tl-body">
+                        <div class="tl-year">2026</div>
+                        <div class="tl-title">6º Lugar Geral — Analista Judiciário TRT-2</div>
+                        <div class="tl-desc">Após mudar completamente o método de estudo. Homologado. Nomeação a
+                            caminho.</div>
+                    </div>
+                </div>
+            </div>
+
             <blockquote>
-              "Eu percebi que se continuasse estudando do jeito tradicional (leitura passiva de PDFs e videoaulas
-              infinitas), eu jogaria anos de bagagem acumulada no lixo. <strong>Eu precisava parar de apenas 'assistir'
-                à matéria e aplicar o que eu descobri que os aprovados de elite faziam: Estudo Ativo.</strong>"
+                "Percebi que se continuasse com leitura passiva de PDFs e videoaulas, jogaria anos de bagagem no lixo.
+                Descobri e apliquei o que os aprovados de elite faziam: <strong>Estudo Ativo.</strong>
+                A IA virou um acelerador do processo, um tutor particular — me testava, me corrigia, me apontava as
+                pegadinhas da banca."
             </blockquote>
-            <p>
-              Foi aí que eu decidi usar a tecnologia a meu favor.
-            </p>
-          </div>
+
+            <div class="result-card">
+                <span class="trophy-large"><i class="fa-solid fa-trophy" style="color: var(--accent);"></i></span>
+                <h3>6º Lugar Geral — Analista do TRT-2</h3>
+                <p>Concurso homologado em 2026. Nomeações em andamento.<br>
+                    Um concurseiro com mais de 40 anos, com rotina integral, alcançou o Top 10 usando Estudo Ativo com
+                    IA.</p>
+            </div>
         </div>
-      </div>
     </section>
 
-    <!-- The Secret Section -->
-    <section class="secret-section" id="secret-section">
-      <div class="container secret-layout">
-        <div class="secret-text">
-          <span class="section-badge" style="align-self: flex-start;">O Segredo do Método</span>
-          <h2 class="secret-title">Eu transformei a Inteligência Artificial no meu <span>tutor particular</span> de
-            Direito, TI e Revisão.</h2>
-          <div class="secret-desc">
-            <p>
-              Eu não usei cronogramas complexos que te punem se você atrasar um dia. Eu usei um controle simples no
-              Google Docs, criei meus próprios flashcards manuais para sintetizar ao extremo o conteúdo e usei a IA para
-              fazer o chamado <strong>"Feynman Reverso"</strong>.
-            </p>
-            <p>
-              Eu explicava o assunto para a IA com as minhas próprias palavras, e ela me dava o feedback em tempo real:
-              <em>“Você acertou isso, mas omitiu a pegadinha X que a banca costuma cobrar”</em>.
-            </p>
-            <p>
-              Apenas alguns meses depois de reprovar no TRT-15, aplicando essa exata abordagem de Engenharia de Prompt e
-              uso das ferramentas certas de IA, veio o resultado:
-            </p>
-            <h3 style="color: var(--accent-cyan); font-size: 22px; margin-top: 10px;">🥇 6º Lugar Geral para Analista
-              Judiciário do TRT-2.</h3>
-            <p>
-              O concurso já foi homologado neste ano de 2026, as nomeações estão andando e eu estou na boca para assumir
-              a minha vaga.
-            </p>
-          </div>
-        </div>
+    <!-- METHOD -->
+    <section class="method">
+        <div class="method-inner">
+            <span class="section-label">O que você recebe</span>
+            <h2>Não é mais um curso de teoria.<br>É a <em>estrutura exata de comandos</em> que usei.</h2>
+            <p class="method-sub">5 módulos práticos e uma biblioteca com +20 prompts prontos para copiar, colar e
+                estudar hoje mesmo.</p>
 
-        <!-- Chat Demo Simulation visual -->
-        <div class="interactive-demo" id="method-demo-visual">
-          <div class="demo-header">
-            <span class="demo-tag">Como Funciona Na Prática</span>
-            <h4 class="demo-title">O Método "Feynman Reverso"</h4>
-          </div>
-          <div class="demo-chat">
-            <div class="chat-bubble chat-bubble-user" id="chat-u1">
-              <div class="chat-avatar avatar-user">EU</div>
-              <div class="chat-bubble-content">
-                <span class="chat-name">Estudante (Estudo Ativo)</span>
-                <div class="chat-text">
-                  Expliquei o Art. 5º, XLIII da CF: a lei considerará crimes inafiançáveis e insuscetíveis de graça ou
-                  anistia a prática da tortura, o tráfico de entorpecentes, o terrorismo e os crimes hediondos. Eles não
-                  admitem fiança e não recebem perdão coletivo.
+
+            <!-- Modules -->
+            <div class="modules">
+                <div class="module-card">
+                    <div class="mod-num">01</div>
+                    <div class="mod-body">
+                        <div class="mod-title">Fundamentos de Engenharia de Prompt</div>
+                        <div class="mod-desc">A estrutura PCIE para falar com a IA
+                            de forma eficaz. Como evitar alucinações e respostas genéricas. Como economizar tokens.
+                        </div>
+                        <div class="mod-tags"><span class="tag">ChatGPT</span><span class="tag">Gemini</span><span
+                                class="tag">Claude</span></div>
+                    </div>
                 </div>
-              </div>
-            </div>
-            <div class="chat-bubble chat-bubble-ai" id="chat-a1">
-              <div class="chat-avatar avatar-ai">IA</div>
-              <div class="chat-bubble-content">
-                <span class="chat-name">PromptAprovado Tutor</span>
-                <div class="chat-text">
-                  Excelente explicação ativa! Você dominou o núcleo do artigo.
-                  <span class="feedback-tag feedback-warning">⚠️ PEGADINHA DE BANCA OMITIDA:</span>
-                  Você não mencionou quem responde por esses crimes. Lembre-se: respondem os mandantes, os executores e
-                  os que, podendo evitá-los, se omitirem. A banca FCC adora cobrar a omissão! Além disso, lembre-se que
-                  eles também são <strong>imprescritíveis</strong>? Não! Apenas o Racismo e a Ação de Grupos Armados são
-                  imprescritíveis. Tortura, tráfico, terrorismo e hediondos são <strong>apenas inafiançáveis e
-                    insuscetíveis de graça/anistia</strong>. Boa!
+                <div class="module-card">
+                    <div class="mod-num">02</div>
+                    <div class="mod-body">
+                        <div class="mod-title">NotebookLM para Concursos</div>
+                        <div class="mod-desc">Como fazer a IA ler seus PDFs pesados de leis secas e apostilas. Geração
+                            automática de podcasts de revisão para ouvir no trânsito.</div>
+                        <div class="mod-tags"><span class="tag">Curadoria dos materiais</span><span class="tag">Geração
+                                de Podcasts, Mapas Mentais entre outros</span></div>
+                    </div>
                 </div>
-              </div>
+                <div class="module-card">
+                    <div class="mod-num">03</div>
+                    <div class="mod-body">
+                        <div class="mod-title">Estudo Ativo na Prática</div>
+                        <div class="mod-desc">Roteiro completo do Feynman Reverso. Como criar Flashcards sob demanda com
+                            IA.
+                            Simulados adaptativos que focam nas suas fraquezas específicas.</div>
+                        <div class="mod-tags"><span class="tag">Retenção</span><span class="tag">Revisão</span></div>
+                    </div>
+                </div>
+                <div class="module-card">
+                    <div class="mod-num">04</div>
+                    <div class="mod-body">
+                        <div class="mod-title">Organização Inteligente de Edital</div>
+                        <div class="mod-desc">Mapeamento de lacunas do edital. Priorização por peso
+                            estratégico de disciplinas para não desperdiçar tempo.</div>
+                        <div class="mod-tags"><span class="tag">Edital</span><span class="tag">Planejamento</span></div>
+                    </div>
+                </div>
+                <div class="module-card">
+                    <div class="mod-num">05</div>
+                    <div class="mod-body">
+                        <div class="mod-title">Fluxos Avançados — Análise de Erro</div>
+                        <div class="mod-desc">Rastreamento de erros com IA para blindar sua pontuação. Caderno de erros
+                            dinâmico que avisa quando você precisa revisar.</div>
+                        <div class="mod-tags"><span class="tag">Pontuação</span><span class="tag">Revisão ativa</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </section>
 
-    <!-- Product Modules Section -->
-    <section class="product-section" id="modules-section">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-badge">Conteúdo do Método</span>
-          <h2 class="section-title">O PromptAprovado não é um curso de teoria. É a <span>chave da minha aprovação</span>
-            traduzida em comandos prontos para você copiar e colar.</h2>
-          <p style="color: var(--text-secondary); margin-top: 16px; font-size: 16px;">
-            Eu empacotei toda a minha estratégia em uma plataforma minimalista, direto ao ponto, dividida em 5 módulos
-            estratégicos e uma biblioteca com mais de 20 prompts prontos para o seu dia a dia.
-          </p>
+    <!-- GUARANTEE (antes do preço) -->
+    <section class="guarantee">
+        <div class="guarantee-inner">
+            <div class="g-badge"><i class="fa-solid fa-shield-halved" style="color: var(--green);"></i></div>
+            <div>
+                <h3>Garantia Incondicional de 7 Dias</h3>
+                <p>Acesse o método, aplique os prompts no seu estudo, veja a diferença na sua retenção.
+                    Se em 7 dias você não achar que valeu cada centavo, cancele direto na Hotmart e receba
+                    100% do seu dinheiro de volta. Sem perguntas, sem burocracia.</p>
+            </div>
         </div>
-
-        <div class="modules-list" id="modules-accordion">
-
-          <!-- Módulo 1 -->
-          <div class="module-card active" id="module-card-1">
-            <div class="module-header" onclick="toggleModule(1)">
-              <div class="module-header-left">
-                <span class="module-badge">Módulo 1</span>
-                <h3 class="module-title">Fundamentos de Engenharia de Prompt</h3>
-              </div>
-              <div class="module-toggle-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-              </div>
-            </div>
-            <div class="module-content">
-              <div class="module-inner-content">
-                <div class="module-details">
-                  <p style="color: var(--text-secondary)">Aprenda a falar com a inteligência artificial da maneira
-                    correta. Entenda o esqueleto lógico dos prompts de alta performance aplicados a concursos públicos.
-                  </p>
-                  <ul class="module-features-list">
-                    <li class="module-feature-item">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="20 6 9 17 4 12"></polyline>
-                      </svg>
-                      <span>A estrutura <strong>PCIE</strong> (Papel, Contexto, Instrução, Exemplo) que usei para falar
-                        com a IA.</span>
-                    </li>
-                    <li class="module-feature-item">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="20 6 9 17 4 12"></polyline>
-                      </svg>
-                      <span>Como evitar alucinações e respostas genéricas da IA.</span>
-                    </li>
-                  </ul>
-                </div>
-                <div class="module-preview-box">
-                  <span class="preview-title">Código de Prompt Preview</span>
-                  <div class="preview-code">[PAPEL]: Você é um tutor especialista na banca do meu concurso...
-                    [CONTEXTO]: Estou estudando o tópico X...
-                    [INSTRUÇÃO]: Aplique o método PCIE...</div>
-                  <button class="preview-btn"
-                    onclick="copyPromptText('[PAPEL]: Você é um tutor especialista na banca do meu concurso...\n[CONTEXTO]: Estou estudando o tópico X...\n[INSTRUÇÃO]: Aplique o método PCIE...')">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                    </svg>
-                    Copiar Esqueleto
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Módulo 2 -->
-          <div class="module-card" id="module-card-2">
-            <div class="module-header" onclick="toggleModule(2)">
-              <div class="module-header-left">
-                <span class="module-badge">Módulo 2</span>
-                <h3 class="module-title">NotebookLM para Concursos</h3>
-              </div>
-              <div class="module-toggle-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-              </div>
-            </div>
-            <div class="module-content">
-              <div class="module-inner-content">
-                <div class="module-details">
-                  <p style="color: var(--text-secondary)">Aprenda a dominar o NotebookLM, a ferramenta gratuita do
-                    Google que se tornou o maior aliado dos concurseiros de alta performance.</p>
-                  <ul class="module-features-list">
-                    <li class="module-feature-item">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="20 6 9 17 4 12"></polyline>
-                      </svg>
-                      <span>Como fazer a IA ler seus PDFs pesados (leis secas, apostilas, editais) sem se perder.</span>
-                    </li>
-                    <li class="module-feature-item">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="20 6 9 17 4 12"></polyline>
-                      </svg>
-                      <span>Geração automática de áudios de revisão (Podcasts de estudo) e mapas mentais guiados.</span>
-                    </li>
-                  </ul>
-                </div>
-                <div class="module-preview-box">
-                  <span class="preview-title">NotebookLM Setup</span>
-                  <div class="preview-code">1. Crie uma fonte com a sua Lei Seca em PDF
-                    2. Utilize a ferramenta de Notas para criar o Guia de Foco
-                    3. Clique em "Generate Audio" para revisar ativamente no trânsito.</div>
-                  <button class="preview-btn" onclick="alert('Instrução completa disponível no painel do aluno!')">
-                    Ver Guia do NotebookLM
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Módulo 3 -->
-          <div class="module-card" id="module-card-3">
-            <div class="module-header" onclick="toggleModule(3)">
-              <div class="module-header-left">
-                <span class="module-badge">Módulo 3</span>
-                <h3 class="module-title">Estudo Ativo na Prática</h3>
-              </div>
-              <div class="module-toggle-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-              </div>
-            </div>
-            <div class="module-content">
-              <div class="module-inner-content">
-                <div class="module-details">
-                  <p style="color: var(--text-secondary)">A prática real que gera aprovação. Substitua a leitura passiva
-                    cansativa por dinâmicas interativas que forçam seu cérebro a memorizar.</p>
-                  <ul class="module-features-list">
-                    <li class="module-feature-item">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="20 6 9 17 4 12"></polyline>
-                      </svg>
-                      <span>O roteiro detalhado do <strong>Feynman Reverso</strong> passo a passo.</span>
-                    </li>
-                    <li class="module-feature-item">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="20 6 9 17 4 12"></polyline>
-                      </svg>
-                      <span>Criação de Flashcards sob demanda em segundos usando IA.</span>
-                    </li>
-                    <li class="module-feature-item">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="20 6 9 17 4 12"></polyline>
-                      </svg>
-                      <span>Simulados Adaptativos que focam nas suas fraquezas específicas.</span>
-                    </li>
-                  </ul>
-                </div>
-                <div class="module-preview-box">
-                  <span class="preview-title">Prompt Feynman Reverso</span>
-                  <div class="preview-code">"Aja como um examinador de concurso público exigente. Eu irei explicar o
-                    conceito X com minhas palavras..."</div>
-                  <button class="preview-btn"
-                    onclick="copyPromptText('Aja como um examinador de concurso público exigente. Eu irei explicar o conceito X com minhas palavras. Você deve avaliar minha explicação com base nas bancas tradicionais (FCC, FGV, Cebraspe), apontar omissões de pegadinhas frequentes e me dar uma nota de 0 a 10.')">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                    </svg>
-                    Copiar Prompt
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Módulo 4 -->
-          <div class="module-card" id="module-card-4">
-            <div class="module-header" onclick="toggleModule(4)">
-              <div class="module-header-left">
-                <span class="module-badge">Módulo 4</span>
-                <h3 class="module-title">Organização Inteligente</h3>
-              </div>
-              <div class="module-toggle-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-              </div>
-            </div>
-            <div class="module-content">
-              <div class="module-inner-content">
-                <div class="module-details">
-                  <p style="color: var(--text-secondary)">Aprenda a mapear seu edital com precisão matemática, sem
-                    desperdiçar tempo estudando tópicos que nunca caem.</p>
-                  <ul class="module-features-list">
-                    <li class="module-feature-item">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="20 6 9 17 4 12"></polyline>
-                      </svg>
-                      <span>Mapeamento de lacunas do edital automatizado por planilhas integradas com IA.</span>
-                    </li>
-                    <li class="module-feature-item">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="20 6 9 17 4 12"></polyline>
-                      </svg>
-                      <span>Priorização por peso estratégico de disciplinas.</span>
-                    </li>
-                  </ul>
-                </div>
-                <div class="module-preview-box">
-                  <span class="preview-title">Prompt de Mapeamento</span>
-                  <div class="preview-code">"Analise a relevância estatística dos tópicos deste edital para o cargo Y
-                    com base no histórico de provas..."</div>
-                  <button class="preview-btn"
-                    onclick="copyPromptText('Analise a relevância estatística dos tópicos deste edital para o cargo Y com base no histórico de provas da banca Z. Classifique em Alta, Média e Baixa prioridade.')">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                    </svg>
-                    Copiar Prompt
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Módulo 5 -->
-          <div class="module-card" id="module-card-5">
-            <div class="module-header" onclick="toggleModule(5)">
-              <div class="module-header-left">
-                <span class="module-badge">Módulo 5</span>
-                <h3 class="module-title">Fluxos Avançados</h3>
-              </div>
-              <div class="module-toggle-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-              </div>
-            </div>
-            <div class="module-content">
-              <div class="module-inner-content">
-                <div class="module-details">
-                  <p style="color: var(--text-secondary)">A tática dos concurseiros profissionais. Aprenda a rastrear
-                    seus erros para blindar sua pontuação na prova.</p>
-                  <ul class="module-features-list">
-                    <li class="module-feature-item">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="20 6 9 17 4 12"></polyline>
-                      </svg>
-                      <span>Análise pós-erro detalhada com IA para diagnosticar a raiz da falha de forma
-                        profunda.</span>
-                    </li>
-                    <li class="module-feature-item">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="20 6 9 17 4 12"></polyline>
-                      </svg>
-                      <span>Como criar um caderno de erros dinâmico que avisa quando você precisa revisar.</span>
-                    </li>
-                  </ul>
-                </div>
-                <div class="module-preview-box">
-                  <span class="preview-title">Prompt Pós-Erro</span>
-                  <div class="preview-code">"Colei esta questão que errei. Me explique o motivo exato do meu erro
-                    conceitual e crie uma pergunta de fixação..."</div>
-                  <button class="preview-btn"
-                    onclick="copyPromptText('Colei esta questão que errei. Me explique o motivo exato do meu erro conceitual, a pegadinha da alternativa e crie uma pergunta de fixação de nível difícil baseada no mesmo artigo.')">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                    </svg>
-                    Copiar Prompt
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
     </section>
 
-    <!-- Pricing & CTA Section -->
-    <section class="pricing-section" id="pricing">
-      <div class="container">
-        <div class="pricing-card" id="pricing-card-main">
+    <!-- PRICING -->
+    <section class="pricing" id="preco">
+        <h2>Acesso Completo e Vitalício</h2>
+        <p class="pricing-sub">Uma única compra. Sem mensalidade.</p>
 
-          <div class="pricing-badge">
-            <div class="countdown-timer" id="countdown-timer">
-              <span>Oferta expira em:</span>
-              <span class="timer-nums" id="timer-display">14:59</span>
+        <div class="pricing-card">
+            <div class="pricing-header">
+                <div class="pricing-tag"><i class="fa-solid fa-fire" style="margin-right: 4px;"></i> Preço de Lançamento
+                </div>
+
+                <div class="timer-bar" style="margin: 0 0 16px;">
+                    <span class="fire"><i class="fa-solid fa-hourglass-end"
+                            style="color: var(--accent-red); margin-right: 4px;"></i></span>
+                    <span>Oferta expira em: <span id="countdown">15:00</span></span>
+                </div>
+
+                <div class="price-old">De R$ 97,00</div>
+                <div class="price-main"><sup>R$</sup> 67<span class="cents">,00</span></div>
+                <div class="price-installments">ou <strong>9x de R$ 8,80</strong> no cartão</div>
             </div>
 
-            <h2 style="font-size: 28px; font-weight: 800; margin-bottom: 8px;">Acesso Completo e Vitalício</h2>
-            <p style="color: var(--text-secondary); font-size: 15px;">Aprovação não é sorte — é método. Você pode
-              continuar lendo PDFs passivamente e esquecendo tudo em dias, ou pode começar a estudar com inteligência
-              ativa hoje mesmo.</p>
-          </div>
+            <div class="pricing-features">
+                <div class="feat-item"><span class="feat-icon"><i class="fa-solid fa-circle-check"></i></span> Acesso
+                    vitalício ao método e todas as
+                    atualizações</div>
+                <div class="feat-item"><span class="feat-icon"><i class="fa-solid fa-circle-check"></i></span>
+                    Biblioteca com +20 prompts prontos para copiar e
+                    colar</div>
+                <div class="feat-item"><span class="feat-icon"><i class="fa-solid fa-circle-check"></i></span> 5 módulos
+                    de Estudo Ativo (Engenharia de Prompt
+                    + NotebookLM) + aulas em video com o autor do método</div>
+                <div class="feat-item"><span class="feat-icon"><i class="fa-solid fa-circle-check"></i></span> Manual
+                    passo a passo do NotebookLM para
+                    concursos</div>
+                <div class="feat-item"><span class="feat-icon"><i class="fa-solid fa-circle-check"></i></span> Suporte a
+                    dúvidas na plataforma</div>
+                <div class="feat-item"><span class="feat-icon"><i class="fa-solid fa-circle-check"></i></span> Funciona
+                    com IA gratuita — sem gastar com
+                    ChatGPT Plus</div>
+            </div>
 
-          <div class="price-box" id="price-container">
-            <span class="price-original">R$ 97,00</span>
-            <div class="price-current-container"
-              style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
-              <div style="display: inline-flex; align-items: baseline; gap: 6px;">
-                <span style="font-size: 18px; color: var(--text-secondary); font-weight: 700;">9x de</span>
-                <span class="price-currency">R$</span>
-                <span class="price-amount">8,80</span>
-              </div>
-              <div style="font-size: 15px; color: var(--text-secondary); margin-top: 2px;">
-                <span>ou R$ 67,00 à vista</span>
-              </div>
+            <div class="pricing-footer">
+                <div class="cta-block">
+                    <a href="https://go.hotmart.com/B105991515E" class="cta-primary"
+                        style="width:100%;text-align:center;" target="_blank" rel="noopener"
+                        onclick="fbq('track', 'InitiateCheckout');">
+                        QUERO MEU ACESSO AGORA →
+                    </a>
+                    <div class="guarantee-pill">
+                        <span class="g-icon"><i class="fa-solid fa-shield-halved"
+                                style="color: var(--accent-green);"></i></span> Garantia incondicional de 7 dias
+                    </div>
+                    <div style="font-size:12px;color:var(--muted);"><i class="fa-solid fa-lock"
+                            style="color: var(--accent); margin-right: 4px;"></i> Compra 100% segura via Hotmart</div>
+                </div>
+                <div class="payment-methods">
+                    <span>Aceito:</span>
+                    <span class="pm-chip">PIX</span>
+                    <span class="pm-chip">Cartão</span>
+                    <span class="pm-chip">Boleto</span>
+                </div>
             </div>
-            <p style="color: var(--accent-cyan); font-size: 13px; font-weight: 700; margin-top: 8px;">🔥 Preço
-              Promocional de Lançamento</p>
-          </div>
-
-          <div class="pricing-cta-container">
-            <a href="https://go.hotmart.com/B105991515E" class="btn btn-primary btn-large" id="main-buy-btn"
-              target="_blank" rel="noopener" onclick="fbq('track', 'InitiateCheckout');">
-              QUERO ESTUDAR COM IA E PASSAR NO CONCURSO
-            </a>
-            <span class="price-subtext">🔒 Compra 100% segura. Acesso imediato à biblioteca de prompts.</span>
-          </div>
-
-          <!-- Features included in price -->
-          <div class="pricing-features-grid">
-            <div class="pricing-feature">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
-                stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span>Acesso <strong>vitalício</strong> ao método e atualizações</span>
-            </div>
-            <div class="pricing-feature">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
-                stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span>Mais de <strong>20 prompts prontos</strong> de Engenharia</span>
-            </div>
-            <div class="pricing-feature">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
-                stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span>Manual passo a passo do <strong>NotebookLM</strong></span>
-            </div>
-            <div class="pricing-feature">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
-                stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span>Suporte a dúvidas diretamente na plataforma</span>
-            </div>
-          </div>
-
-          <!-- Guarantee Badge -->
-          <div class="guarantee-box" id="guarantee-box">
-            <div class="guarantee-icon">🛡️</div>
-            <div class="guarantee-text">
-              <h4>Garantia Incondicional de 7 Dias</h4>
-              <p>Experimente o método sem riscos. Se você não achar que os prompts mudaram sua velocidade de retenção,
-                cancele na própria plataforma (Hotmart) em até 7 dias e eu devolvo 100% do seu dinheiro. Você não
-                precisa se justificar!</p>
-            </div>
-          </div>
-
-          <!-- Payment methods -->
-          <div class="payment-trust">
-            <span
-              style="font-size: 11px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Formas
-              de Pagamento</span>
-            <div class="trust-icons">
-              <span style="font-size: 13px; color: var(--text-secondary); font-weight: 500;">Pix &bull; Cartão de
-                Crédito &bull;</span>
-            </div>
-          </div>
-
         </div>
-      </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section class="faq-section" id="faq">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-badge">Perguntas Frequentes</span>
-          <h2 class="section-title">Tem alguma dúvida? <span>Nós respondemos</span></h2>
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="faq-inner">
+            <h2>Perguntas Frequentes</h2>
+            <details>
+                <summary>Preciso pagar ChatGPT Plus para usar o método?</summary>
+                <p>Não. Todos os prompts foram testados e otimizados para funcionarem em modelos e ferramentas
+                    gratuitas. Você não precisa
+                    gastar nada
+                    extra.</p>
+            </details>
+            <details>
+                <summary>Como acesso o conteúdo após a compra?</summary>
+                <p>Imediatamente após a confirmação do pagamento, você recebe um e-mail com acesso à plataforma de
+                    membros. Os prompts estão organizados e prontos para copiar e usar no mesmo dia.</p>
+            </details>
+            <details>
+                <summary>Funciona para quem trabalha o dia inteiro?</summary>
+                <p>Foi feito exatamente para isso. O método foi desenvolvido por alguém com rotina integral, esposa e
+                    filho pequeno. A IA acelera resumos, flashcards e transforma leis secas em áudios de revisão para
+                    ouvir no trânsito ou na academia.</p>
+            </details>
+            <details>
+                <summary>Serve para qualquer área de concurso?</summary>
+                <p>Sim. Tribunais, área administrativa, policial, fiscal ou de controle. Os prompts foram desenhados
+                    para estruturar qualquer conteúdo — direito, TI, português, raciocínio lógico, etc. O método é
+                    focado em concursos, mas funciona para qualquer área.</p>
+            </details>
+            <details>
+                <summary>E se eu não gostar? Perco meu dinheiro?</summary>
+                <p>Não. Você tem 7 dias de garantia incondicional. Basta pedir o cancelamento direto na Hotmart e o
+                    reembolso é feito integralmente, sem precisar se justificar.</p>
+            </details>
         </div>
-
-        <div class="faq-list" id="faq-accordion">
-
-          <div class="faq-card" id="faq-item-1">
-            <div class="faq-question" onclick="toggleFaq(1)">
-              <h3 class="faq-title">Preciso pagar a assinatura do ChatGPT Plus para usar o método?</h3>
-              <div class="faq-toggle-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-              </div>
-            </div>
-            <div class="faq-answer">
-              <div class="faq-inner-answer">
-                Não. Todos os prompts foram otimizados e exaustivamente testados tanto em modelos gratuitos (como
-                ChatGPT 4o-mini, Google Gemini e Claude Sonnet) quanto no NotebookLM, que é uma ferramenta 100% gratuita
-                da Google. Você terá resultados excepcionais sem gastar um centavo com assinaturas.
-              </div>
-            </div>
-          </div>
-
-          <div class="faq-card" id="faq-item-2">
-            <div class="faq-question" onclick="toggleFaq(2)">
-              <h3 class="faq-title">Como vou ter acesso aos prompts?</h3>
-              <div class="faq-toggle-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-              </div>
-            </div>
-            <div class="faq-answer">
-              <div class="faq-inner-answer">
-                Imediatamente após a aprovação do seu pagamento, você receberá um e-mail com seus dados de acesso
-                exclusivos à nossa plataforma de membros. Lá dentro, os prompts estão organizados de forma limpa e
-                estruturada, prontos para serem copiados e aplicados no seu estudo diário.
-              </div>
-            </div>
-          </div>
-
-          <div class="faq-card" id="faq-item-3">
-            <div class="faq-question" onclick="toggleFaq(3)">
-              <h3 class="faq-title">Funciona para quem trabalha o dia inteiro ou tem pouco tempo?</h3>
-              <div class="faq-toggle-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-              </div>
-            </div>
-            <div class="faq-answer">
-              <div class="faq-inner-answer">
-                Sim! Esse método foi desenvolvido exatamente por quem tinha rotina de trabalho integral, esposa e filho
-                pequeno. A IA atua acelerando o tempo de confecção de resumos e flashcards, além de transformar leis
-                secas densas em revisões de áudio dinâmicas para você ouvir no trânsito ou na academia. É sobre estudar
-                melhor nas horas que você tem livre, não sobre estudar o dia inteiro.
-              </div>
-            </div>
-          </div>
-
-          <div class="faq-card" id="faq-item-4">
-            <div class="faq-question" onclick="toggleFaq(4)">
-              <h3 class="faq-title">O método serve para qualquer área de concurso?</h3>
-              <div class="faq-toggle-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-              </div>
-            </div>
-            <div class="faq-answer">
-              <div class="faq-inner-answer">
-                Com certeza. Seja área de Tribunais, Administrativa, Policial, Fiscal ou de Controle. Os prompts e as
-                dinâmicas de Estudo Ativo foram desenhados para estruturar conteúdos de qualquer natureza, desde leis
-                secas de direito até conhecimentos de tecnologia da informação e português.
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
     </section>
-  </main>
 
-  <!-- Sticky Bottom CTA -->
-  <aside class="sticky-cta" id="sticky-bottom-cta">
-    <div class="container sticky-cta-layout">
-      <div class="sticky-cta-info">
-        <span class="sticky-title">Garantir acesso ao PromptAprovado</span><br />
-        <span class="sticky-price"><span>R$ 97,00</span><br /> 9x de R$ 8,80 ou R$ 67,00 à vista</span>
-      </div>
-      <a href="https://go.hotmart.com/B105991515E" class="btn btn-primary" id="sticky-cta-action-btn" target="_blank"
-        rel="noopener" onclick="fbq('track', 'InitiateCheckout');">Quero Meu Acesso</a>
-    </div>
-  </aside>
+    <!-- FINAL CTA -->
+    <section class="final-cta">
+        <h2>Você pode continuar estudando do mesmo jeito.<br>Ou pode <em>mudar o método agora.</em></h2>
+        <p>Acesse hoje os prompts exatos de quem foi do fracasso na objetiva do TRT-15 ao 6º lugar geral no TRT-2 — em
+            menos de um ano.</p>
+        <a href="https://go.hotmart.com/B105991515E" class="cta-primary" target="_blank" rel="noopener"
+            onclick="fbq('track', 'InitiateCheckout');">
+            QUERO ESTUDAR COM IA E PASSAR →
+        </a>
+        <div style="margin-top:16px;font-size:13px;color:var(--muted);">
+            R$ 67 à vista · Acesso imediato · Garantia de 7 dias
+        </div>
+    </section>
 
-  <!-- Footer -->
-  <footer>
-    <div class="container footer-content">
-      <div class="footer-logo" id="footer-logo">
-        ⚡ Prompt<span>Aprovado</span>
-      </div>
-      <div class="footer-links">
-        <a href="#hero-section" class="footer-link">Início</a>
-        <a href="#story-section" class="footer-link">Jornada</a>
-        <a href="#secret-section" class="footer-link">O Método</a>
-        <a href="#modules-section" class="footer-link">Módulos</a>
-        <a href="#pricing" class="footer-link">Garantia &amp; Preço</a>
-      </div>
-      <p class="footer-copy">&copy; 2026 Concurseiro Top 10. Todos os direitos reservados. Este site não tem vínculo
-        direto
-        com nenhuma banca examinadora ou tribunal.</p>
-    </div>
-  </footer>
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 Concurseiro Top 10. Todos os direitos reservados.</p>
+    </footer>
 
-  <!-- Script for Interactive Components -->
-  <script>
-    // Module Accordion
-    function toggleModule(moduleNum) {
-      const allModules = document.querySelectorAll('.module-card');
-      const targetModule = document.getElementById('module-card-' + moduleNum);
+    <!-- Sticky Bottom CTA -->
+    <aside class="sticky-cta" id="sticky-bottom-cta">
+        <div class="sticky-cta-layout">
+            <div class="sticky-cta-info">
+                <span class="sticky-title">Garantir acesso ao PromptAprovado</span>
+                <span class="sticky-price">9x de R$ 8,80 ou <strong>R$ 67,00 à vista</strong></span>
+            </div>
+            <a href="https://go.hotmart.com/B105991515E" class="sticky-btn" id="sticky-cta-action-btn" target="_blank"
+                rel="noopener" onclick="fbq('track', 'InitiateCheckout');">Quero Meu Acesso</a>
+        </div>
+    </aside>
 
-      const isActive = targetModule.classList.contains('active');
-
-      allModules.forEach(m => m.classList.remove('active'));
-
-      if (!isActive) {
-        targetModule.classList.add('active');
-      }
-    }
-
-    // FAQ Accordion
-    function toggleFaq(faqNum) {
-      const allFaqs = document.querySelectorAll('.faq-card');
-      const targetFaq = document.getElementById('faq-item-' + faqNum);
-
-      const isActive = targetFaq.classList.contains('active');
-
-      allFaqs.forEach(f => f.classList.remove('active'));
-
-      if (!isActive) {
-        targetFaq.classList.add('active');
-      }
-    }
-
-    // Copy Prompt utility
-    function copyPromptText(text) {
-      navigator.clipboard.writeText(text).then(() => {
-        alert('Prompt copiado com sucesso! Você já pode colar na IA.');
-      }).catch(err => {
-        console.error('Erro ao copiar: ', err);
-      });
-    }
-
-    // Interactive Terminal simulator logic
-    const simulatorData = {
-      feynman: [
-        { type: 'user', label: 'Estudante', text: 'Vou te explicar o Art. 37, §6º da CF: Pessoas jurídicas de direito público e as de direito privado prestadoras de serviços públicos responderão pelos danos que seus agentes causarem a terceiros...' },
-        { type: 'ai', label: 'PromptAprovado Tutor', text: 'Perfeito! Esse é o tema da Responsabilidade Civil Objetiva do Estado. Mas note: quem tem direito de regresso contra o agente responsável?' },
-        { type: 'user', label: 'Estudante', text: 'Ah, o Estado tem ação de regresso contra o agente causador do dano nos casos de dolo ou culpa.' },
-        { type: 'ai', label: 'PromptAprovado Tutor', text: 'Exato! E lembre-se: a ação de regresso pressupõe condenação do Estado e dolo/culpa do agente (responsabilidade subjetiva).' }
-      ],
-      erro: [
-        { type: 'user', label: 'Estudante', text: 'Errei essa questão: a banca diz que o ato administrativo nulo não produz efeito. O que errei?' },
-        { type: 'ai', label: 'PromptAprovado Tutor', text: 'Você errou porque confundiu a regra geral com a exceção. Embora nulo, o ato produz efeitos perante terceiros de boa-fé. É a Teoria da Aparência.' },
-        { type: 'user', label: 'Estudante', text: 'Entendi, os efeitos produzidos até a anulação são válidos para proteger quem estava de boa-fé.' },
-        { type: 'ai', label: 'PromptAprovado Tutor', text: 'Perfeito! Vamos gerar um flashcard de fixação para você revisar em 3 dias?' }
-      ]
-    };
-
-    let typingTimeout;
-    function runTerminalSimulation(tabName) {
-      const terminal = document.getElementById('sim-terminal-body');
-      terminal.innerHTML = '';
-      clearTimeout(typingTimeout);
-
-      const steps = simulatorData[tabName];
-      let currentStep = 0;
-
-      function typeNextStep() {
-        if (currentStep >= steps.length) return;
-
-        const step = steps[currentStep];
-        const msgDiv = document.createElement('div');
-        msgDiv.className = `sim-message sim-msg-${step.type}`;
-
-        const labelSpan = document.createElement('span');
-        labelSpan.className = 'sim-label';
-        labelSpan.innerText = step.label;
-
-        const bubbleDiv = document.createElement('div');
-        bubbleDiv.className = 'sim-bubble';
-
-        msgDiv.appendChild(labelSpan);
-        msgDiv.appendChild(bubbleDiv);
-        terminal.appendChild(msgDiv);
-
-        // Scroll terminal to bottom
-        terminal.scrollTop = terminal.scrollHeight;
-
-        // Type effect
-        let charIndex = 0;
-        function typeChar() {
-          if (charIndex < step.text.length) {
-            // simple check if it has HTML elements, but here we just append characters or parts of it
-            bubbleDiv.innerHTML = step.text.substring(0, charIndex + 1);
-            charIndex++;
-            terminal.scrollTop = terminal.scrollHeight;
-            typingTimeout = setTimeout(typeChar, 12);
-          } else {
-            currentStep++;
-            typingTimeout = setTimeout(typeNextStep, 1500);
-          }
+    <script>
+        // countdown with restart behavior from index.html
+        let secs = 15 * 60;
+        function tick() {
+            const m = String(Math.floor(secs / 60)).padStart(2, '0');
+            const s = String(secs % 60).padStart(2, '0');
+            const el = document.getElementById('countdown');
+            if (el) el.textContent = m + ':' + s;
+            if (secs <= 0) {
+                secs = 15 * 60; // Restart to keep the urgency feeling dynamic for new visitors
+            } else {
+                secs--;
+            }
+            setTimeout(tick, 1000);
         }
+        tick();
 
-        typeChar();
-      }
+        // Sticky Bottom CTA display logic on scroll
+        window.addEventListener('scroll', () => {
+            const stickyCta = document.getElementById('sticky-bottom-cta');
+            const hero = document.querySelector('.hero');
+            const pricing = document.getElementById('preco');
 
-      typeNextStep();
-    }
+            if (!stickyCta || !hero || !pricing) return;
 
-    function switchSimulatorTab(tabName) {
-      document.querySelectorAll('.sim-tab-btn').forEach(btn => btn.classList.remove('active'));
-      if (tabName === 'feynman') {
-        document.getElementById('tab-btn-feynman').classList.add('active');
-      } else {
-        document.getElementById('tab-btn-erro').classList.add('active');
-      }
-      runTerminalSimulation(tabName);
-    }
+            const scrollPosition = window.scrollY;
+            const heroHeight = hero.offsetHeight;
+            const pricingTop = pricing.offsetTop;
 
-    // Start default simulation
-    window.addEventListener('DOMContentLoaded', () => {
-      runTerminalSimulation('feynman');
-      startCountdownTimer();
-    });
-
-    // Countdown Timer logic
-    function startCountdownTimer() {
-      const timerDisplay = document.getElementById('timer-display');
-      let timeRemaining = 14 * 60 + 59; // 14:59 in seconds
-
-      const interval = setInterval(() => {
-        const minutes = Math.floor(timeRemaining / 60);
-        const seconds = timeRemaining % 60;
-
-        timerDisplay.innerText = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-
-        if (timeRemaining <= 0) {
-          // Restart to keep the urgency feeling dynamic for new visitors
-          timeRemaining = 14 * 60 + 59;
-        } else {
-          timeRemaining--;
-        }
-      }, 1000);
-    }
-
-    // Sticky Bottom CTA display logic on scroll
-    window.addEventListener('scroll', () => {
-      const stickyCta = document.getElementById('sticky-bottom-cta');
-      const pricingSection = document.getElementById('pricing');
-      const heroSection = document.getElementById('hero-section');
-
-      // Show when user scrolls past hero section, but hide when they reach the pricing card itself
-      const scrollPosition = window.scrollY;
-      const heroHeight = heroSection.offsetHeight;
-      const pricingTop = pricingSection.offsetTop;
-
-      if (scrollPosition > heroHeight && scrollPosition < (pricingTop - 300)) {
-        stickyCta.classList.add('visible');
-      } else {
-        stickyCta.classList.remove('visible');
-      }
-    });
-  </script>
+            // Show when user scrolls past hero section, but hide when they reach the pricing section
+            if (scrollPosition > heroHeight && scrollPosition < (pricingTop - 300)) {
+                stickyCta.classList.add('visible');
+            } else {
+                stickyCta.classList.remove('visible');
+            }
+        });
+    </script>
 </body>
 
 </html>

@@ -23,21 +23,7 @@
         rel="stylesheet">
 
     <!-- Meta Pixel Code -->
-    <script>
-        !function (f, b, e, v, n, t, s) {
-            if (f.fbq) return; n = f.fbq = function () {
-                n.callMethod ?
-                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-            };
-            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
-            n.queue = []; t = b.createElement(e); t.async = !0;
-            t.src = v; s = b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t, s)
-        }(window, document, 'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '990961440342976');
-        fbq('track', 'PageView');
-    </script>
+    <script src="js/pixel.js"></script>
     <noscript><img height="1" width="1" style="display:none"
             src="https://www.facebook.com/tr?id=990961440342976&ev=PageView&noscript=1" /></noscript>
     <!-- End Meta Pixel Code -->
@@ -1326,8 +1312,7 @@
     <!-- NAV -->
     <nav>
         <div class="logo">Prompt<span>Aprovado</span></div>
-        <a href="./acesso/" class="nav-cta" target="_blank" rel="noopener"
-            onclick="fbq('track', 'InitiateCheckout');">QUERO ACESSO →</a>
+        <a href="./acesso/" class="nav-cta" target="_blank" rel="noopener">QUERO ACESSO →</a>
     </nav>
 
     <!-- HERO -->
@@ -1345,8 +1330,7 @@
             aprovado em 2025 usando exatamente este método. <strong>Método Comprovado</strong>
         </p>
 
-        <a href="./acesso/" class="cta-primary" target="_blank" rel="noopener"
-            onclick="fbq('track', 'InitiateCheckout');">
+        <a href="./acesso/" class="cta-primary" target="_blank" rel="noopener">
             QUERO OS PROMPTS DE APROVAÇÃO →
         </a>
         <span class="cta-sub">
@@ -1578,8 +1562,7 @@
             <div class="pricing-footer">
                 <div class="cta-block">
                     <a href="./acesso/" class="cta-primary"
-                        style="width:100%;text-align:center;" target="_blank" rel="noopener"
-                        onclick="fbq('track', 'InitiateCheckout');">
+                        style="width:100%;text-align:center;" target="_blank" rel="noopener">
                         QUERO MEU ACESSO AGORA →
                     </a>
                     <div class="guarantee-pill">
@@ -1640,8 +1623,7 @@
         <h2>Você pode continuar estudando do mesmo jeito.<br>Ou pode <em>mudar o método agora.</em></h2>
         <p>Acesse hoje os prompts exatos de quem foi do fracasso na objetiva do TRT-15 ao 6º lugar geral no TRT-2 — em
             menos de um ano.</p>
-        <a href="./acesso/" class="cta-primary" target="_blank" rel="noopener"
-            onclick="fbq('track', 'InitiateCheckout');">
+        <a href="./acesso/" class="cta-primary" target="_blank" rel="noopener">
             QUERO ESTUDAR COM IA E PASSAR →
         </a>
         <div style="margin-top:16px;font-size:13px;color:var(--muted);">
@@ -1662,7 +1644,7 @@
                 <span class="sticky-price">9x de R$ 8,80 ou <strong>R$ 67,00 à vista</strong></span>
             </div>
             <a href="./acesso/" class="sticky-btn" id="sticky-cta-action-btn" target="_blank"
-                rel="noopener" onclick="fbq('track', 'InitiateCheckout');">Quero Meu Acesso</a>
+                rel="noopener">Quero Meu Acesso</a>
         </div>
     </aside>
 
@@ -1703,6 +1685,9 @@
             }
         });
     </script>
+    <!-- Pixel & Conversions API (CAPI) Integration -->
+    <script src="js/capi.js"></script>
+    <script src="js/events.js"></script>
 </body>
 
 </html>

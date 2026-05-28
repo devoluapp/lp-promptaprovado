@@ -1180,146 +1180,7 @@
             }
         }
 
-        /* Sticky Bottom CTA */
-        .sticky-cta {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(8, 12, 20, 0.95);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-top: 1px solid var(--border);
-            padding: 14px 24px;
-            padding-bottom: calc(14px + env(safe-area-inset-bottom, 0px));
-            z-index: 99;
-            transform: translateY(100%);
-            transition: var(--transition-smooth);
-            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5);
-        }
 
-        .sticky-cta.visible {
-            transform: translateY(0);
-        }
-
-        .sticky-cta-layout {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-        }
-
-        .sticky-cta-info {
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-        }
-
-        .sticky-title {
-            font-family: var(--font-headings);
-            font-size: 14px;
-            font-weight: 700;
-            color: var(--text);
-        }
-
-        .sticky-price {
-            font-size: 13px;
-            color: var(--muted);
-        }
-
-        .sticky-price strong {
-            color: var(--green);
-        }
-
-        .sticky-btn {
-            display: inline-block;
-            background: var(--gradient-primary);
-            color: #080c14;
-            font-size: 13px;
-            font-weight: 800;
-            padding: 10px 24px;
-            border-radius: 8px;
-            text-decoration: none;
-            letter-spacing: 0.03em;
-            transition: var(--transition-smooth);
-            font-family: var(--font-headings);
-            text-transform: uppercase;
-            box-shadow: 0 4px 15px rgba(0, 242, 254, 0.25);
-            text-align: center;
-        }
-
-        .sticky-btn:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 6px 20px rgba(0, 242, 254, 0.4);
-            filter: brightness(1.1);
-        }
-
-        @media (max-width: 768px) {
-            .sticky-cta {
-                padding: 12px 16px;
-                padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
-            }
-
-            .sticky-cta-layout {
-                flex-direction: row;
-                align-items: center;
-                justify-content: space-between;
-            }
-
-            .sticky-title {
-                font-size: 12px;
-            }
-
-            .sticky-price {
-                font-size: 11px;
-            }
-
-            .sticky-btn {
-                padding: 8px 16px;
-                font-size: 12px;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .sticky-cta-layout {
-                display: block !important;
-                width: 100% !important;
-                text-align: center !important;
-            }
-
-            .sticky-cta-info {
-                display: block !important;
-                width: 100% !important;
-                margin-bottom: 10px !important;
-                text-align: center !important;
-            }
-
-            .sticky-title {
-                display: block !important;
-                width: 100% !important;
-                text-align: center !important;
-                font-size: 13px !important;
-                margin-bottom: 4px !important;
-            }
-
-            .sticky-price {
-                display: block !important;
-                width: 100% !important;
-                text-align: center !important;
-                font-size: 12px !important;
-            }
-
-            .sticky-btn {
-                display: block !important;
-                width: 100% !important;
-                max-width: 100% !important;
-                box-sizing: border-box !important;
-                padding: 12px 16px !important;
-                font-size: 13px !important;
-            }
-        }
     </style>
 </head>
 
@@ -1463,6 +1324,16 @@
                 <p>Concurso homologado em 2026. Nomeações em andamento.<br>
                     Um concurseiro com mais de 40 anos, com rotina integral, alcançou o Top 10 usando Estudo Ativo com
                     IA.</p>
+            </div>
+
+            <!-- Middle Page CTA (Substituindo o rodapé fixo) -->
+            <div style="text-align: center; margin-top: 48px; margin-bottom: 16px;">
+                <a href="./acesso/" class="cta-primary" target="_blank" rel="noopener">
+                    QUERO ESTUDAR COM IA E PASSAR →
+                </a>
+                <span class="cta-sub" style="margin-top: 14px;">
+                    <span style="color: var(--accent-green); font-weight: 600;">R$ 67 à vista</span> · Acesso imediato · Garantia de 7 dias
+                </span>
             </div>
         </div>
     </section>
@@ -1663,17 +1534,7 @@
         <p>© 2026 Concurseiro Top 10. Todos os direitos reservados.</p>
     </footer>
 
-    <!-- Sticky Bottom CTA -->
-    <aside class="sticky-cta" id="sticky-bottom-cta">
-        <div class="sticky-cta-layout">
-            <div class="sticky-cta-info">
-                <span class="sticky-title">Garantir acesso ao PromptAprovado</span>
-                <span class="sticky-price">9x de R$ 8,80 ou <strong>R$ 67,00 à vista</strong></span>
-            </div>
-            <a href="./acesso/" class="sticky-btn" id="sticky-cta-action-btn" target="_blank"
-                rel="noopener">Quero Meu Acesso</a>
-        </div>
-    </aside>
+
 
     <script>
         // countdown with restart behavior from index.html
@@ -1692,25 +1553,7 @@
         }
         tick();
 
-        // Sticky Bottom CTA display logic on scroll
-        window.addEventListener('scroll', () => {
-            const stickyCta = document.getElementById('sticky-bottom-cta');
-            const hero = document.querySelector('.hero');
-            const pricing = document.getElementById('preco');
 
-            if (!stickyCta || !hero || !pricing) return;
-
-            const scrollPosition = window.scrollY;
-            const heroHeight = hero.offsetHeight;
-            const pricingTop = pricing.offsetTop;
-
-            // Show when user scrolls past hero section, but hide when they reach the pricing section
-            if (scrollPosition > heroHeight && scrollPosition < (pricingTop - 300)) {
-                stickyCta.classList.add('visible');
-            } else {
-                stickyCta.classList.remove('visible');
-            }
-        });
     </script>
     <!-- Pixel & Conversions API (CAPI) Integration -->
     <script src="js/capi.js"></script>

@@ -737,89 +737,59 @@
 
         /* modules grid */
         .modules {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
         }
 
         .module-card {
             border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 28px;
+            border-radius: var(--r);
+            padding: 24px;
             background: var(--surface2);
             display: flex;
-            flex-direction: column;
-            gap: 16px;
+            gap: 20px;
+            align-items: flex-start;
             transition: var(--transition-smooth);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .module-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: var(--gradient-primary);
-            opacity: 0;
-            transition: var(--transition-smooth);
-        }
-
-        .module-card:hover::after {
-            opacity: 1;
         }
 
         .module-card:hover {
-            border-color: rgba(0, 242, 254, 0.35);
-            transform: translateY(-4px);
-            box-shadow: 0 15px 35px rgba(0, 242, 254, 0.08);
-            background: var(--surface);
-        }
-
-        .mod-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
+            border-color: rgba(0, 242, 254, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(0, 242, 254, 0.05);
         }
 
         .mod-num {
             font-family: var(--font-headings);
             font-weight: 800;
-            font-size: 28px;
+            font-size: 32px;
             background: var(--gradient-primary);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            opacity: 0.8;
+            opacity: 0.6;
             line-height: 1;
-        }
-
-        .mod-icon {
-            font-size: 22px;
-            color: var(--accent);
-            opacity: 0.8;
+            flex-shrink: 0;
+            width: 40px;
         }
 
         .mod-title {
             font-weight: 700;
-            font-size: 17px;
+            font-size: 16px;
+            margin-bottom: 6px;
             color: var(--text);
-            margin: 0;
         }
 
         .mod-desc {
             font-size: 13.5px;
             color: var(--muted);
             line-height: 1.65;
-            flex-grow: 1;
         }
 
         .mod-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 6px;
+            margin-top: 12px;
         }
 
         .tag {
@@ -998,176 +968,56 @@
             font-weight: 600;
         }
 
-        /* Enhanced Guarantee Section */
+        /* guarantee section */
         .guarantee {
-            padding: 80px 24px;
-            background: linear-gradient(135deg, rgba(8, 12, 20, 0.98) 0%, rgba(16, 185, 129, 0.03) 100%);
+            background: var(--surface);
             border-top: 1px solid var(--border);
             border-bottom: 1px solid var(--border);
-        }
-
-        .guarantee-box {
-            max-width: 780px;
-            margin: 0 auto;
-            background: rgba(16, 185, 129, 0.02);
-            border: 1px solid rgba(16, 185, 129, 0.25);
-            border-radius: 24px;
-            padding: 48px;
-            display: flex;
-            gap: 32px;
-            align-items: center;
-            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.05);
+            padding: 64px 24px;
             position: relative;
-            overflow: hidden;
         }
 
-        .guarantee-box::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background: var(--gradient-primary);
+        .guarantee-inner {
+            max-width: 640px;
+            margin: 0 auto;
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
         }
 
-        .g-badge-large {
+        .g-badge {
             background: rgba(16, 185, 129, 0.08);
             border: 1px solid rgba(16, 185, 129, 0.2);
-            border-radius: 20px;
-            width: 88px;
-            height: 88px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 40px;
-            flex-shrink: 0;
-            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.1);
-        }
-
-        .guarantee-content {
-            flex-grow: 1;
-        }
-
-        .g-risk-zero {
-            display: inline-block;
-            background: var(--green);
-            color: #080c14;
-            font-size: 11px;
-            font-weight: 800;
-            padding: 4px 12px;
-            border-radius: 100px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 12px;
-            font-family: var(--font-headings);
-        }
-
-        .guarantee-content h3 {
-            font-size: clamp(20px, 3.5vw, 24px);
-            font-weight: 800;
-            margin-bottom: 12px;
-            color: var(--text);
-        }
-
-        .guarantee-content p {
-            color: var(--text-secondary);
-            font-size: 15px;
-            line-height: 1.7;
-        }
-
-        @media (max-width: 650px) {
-            .guarantee-box {
-                flex-direction: column;
-                text-align: center;
-                padding: 32px 24px;
-            }
-            .guarantee-box::before {
-                width: 100%;
-                height: 4px;
-                top: 0;
-                left: 0;
-            }
-        }
-
-        /* Testimonials Section */
-        .testimonials {
-            padding: 80px 24px;
-            background: linear-gradient(180deg, var(--bg) 0%, rgba(0, 242, 254, 0.02) 50%, var(--bg) 100%);
-            position: relative;
-        }
-
-        .testimonials-inner {
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-            margin-top: 48px;
-        }
-
-        .testimonial-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            padding: 28px;
             border-radius: 16px;
-            position: relative;
-            transition: var(--transition-smooth);
-        }
-
-        .testimonial-card:hover {
-            border-color: rgba(0, 242, 254, 0.2);
-            transform: translateY(-4px);
-            box-shadow: 0 12px 30px rgba(0, 242, 254, 0.05);
-        }
-
-        .testimonial-stars {
-            color: var(--accent-gold);
-            font-size: 14px;
-            margin-bottom: 16px;
-        }
-
-        .testimonial-text {
-            font-size: 14.5px;
-            line-height: 1.7;
-            color: var(--text-secondary);
-            font-style: italic;
-            margin-bottom: 20px;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .testimonial-avatar {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: rgba(0, 242, 254, 0.1);
-            color: var(--accent);
+            width: 72px;
+            height: 72px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 700;
-            font-size: 15px;
-            border: 1px solid rgba(0, 242, 254, 0.25);
+            font-size: 32px;
+            flex-shrink: 0;
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.05);
         }
 
-        .testimonial-info h4 {
-            font-size: 14px;
+        .guarantee-inner h3 {
             font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 8px;
             color: var(--text);
-            margin-bottom: 2px;
         }
 
-        .testimonial-info span {
-            font-size: 12px;
+        .guarantee-inner p {
             color: var(--muted);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        @media(max-width:500px) {
+            .guarantee-inner {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
         }
 
         /* ─── FAQ ────────────────────────────── */
@@ -1357,9 +1207,6 @@
     <section class="hero">
         <div class="hero-badge">⚡ Método Testado — Aprovação Real</div>
         <h1>Você estuda horas. <em>Mas não retém quase nada.</em> Aqui está o porquê.</h1>
-        <p class="hero-tagline" style="font-size: clamp(15px, 2.5vw, 17px); line-height: 1.6; max-width: 800px; margin: 18px auto 28px; color: var(--text-secondary); font-style: italic; font-weight: 500; opacity: 0.95;">
-            “A chave não é estudar mais, é estudar melhor. Com a técnica de Estudo Ativo e IA que me levou ao Top 10 no TRT-2, você vai fixar o conteúdo de uma vez por todas e otimizar cada minuto da sua rotina.”
-        </p>
         <p class="hero-sub">
             A leitura passiva de PDFs e videoaulas infinitas não gera aprovação.
             Estudo Ativo, usando a IA como ferramenta, sim — e eu tenho <strong>6º lugar geral no TRT-2</strong> para
@@ -1372,7 +1219,7 @@
         </p>
 
         <a href="./acesso/" class="cta-primary" target="_blank" rel="noopener">
-            SIM, QUERO ACELERAR MINHA APROVAÇÃO →
+            QUERO OS PROMPTS DE APROVAÇÃO →
         </a>
         <span class="cta-sub">
             <span class="price-highlight">R$ 67 à vista</span> · Acesso imediato · Garantia de 7 dias
@@ -1482,85 +1329,11 @@
             <!-- Middle Page CTA (Substituindo o rodapé fixo) -->
             <div style="text-align: center; margin-top: 48px; margin-bottom: 16px;">
                 <a href="./acesso/" class="cta-primary" target="_blank" rel="noopener">
-                    QUERO GARANTIR MEU 6º LUGAR →
+                    QUERO ESTUDAR COM IA E PASSAR →
                 </a>
                 <span class="cta-sub" style="margin-top: 14px;">
                     <span style="color: var(--accent-green); font-weight: 600;">R$ 67 à vista</span> · Acesso imediato · Garantia de 7 dias
                 </span>
-            </div>
-        </div>
-    </section>
-
-    <!-- TESTIMONIALS (Prova Social) -->
-    <section class="testimonials">
-        <div class="testimonials-inner">
-            <span class="section-label" style="display: block; text-align: center; margin-bottom: 12px;">Depoimentos</span>
-            <h2 style="text-align: center; font-size: clamp(28px, 4vw, 38px); line-height: 1.25; margin-bottom: 8px;">O que dizem outros <span style="background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">concurseiros aprovados</span></h2>
-            <p style="text-align: center; color: var(--muted); font-size: 15px; max-width: 600px; margin: 0 auto 40px;">Resultados reais de quem cansou do estudo passivo e adotou o Estudo Ativo com Inteligência Artificial.</p>
-            
-            <div class="testimonials-grid">
-                <!-- Testimonial 1 -->
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">
-                        "Comprei, usei e vi resultado na mesma semana. O Feynman Reverso com o ChatGPT me ajudou a fixar os pontos do edital do TSE Unificado que eu errava direto nas questões."
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">AM</div>
-                        <div class="testimonial-info">
-                            <h4>Aline Mendes</h4>
-                            <span>Estudando para Tribunais (TSE)</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonial 2 -->
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">
-                        "Finalmente consegui organizar meus estudos de verdade. O fluxo de análise de erros do Módulo 5 transformou meu caderno de revisão em um imã de pontos na prova."
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">TC</div>
-                        <div class="testimonial-info">
-                            <h4>Thiago Costa</h4>
-                            <span>Estudando para Carreiras Policiais</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonial 3 -->
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">
-                        "A geração de podcast de leis secas pelo NotebookLM é revolucionária. Ouço no trânsito a caminho do trabalho e consigo revisar passagens difíceis de forma ativa."
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">JS</div>
-                        <div class="testimonial-info">
-                            <h4>Juliana Souza</h4>
-                            <span>Aprovada no TRF-3 (Técnico)</span>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -1573,61 +1346,58 @@
             <p class="method-sub">5 módulos práticos e uma biblioteca com +20 prompts prontos para copiar, colar e
                 estudar hoje mesmo.</p>
 
+
             <!-- Modules -->
             <div class="modules">
-                <!-- Module 1 -->
                 <div class="module-card">
-                    <div class="mod-header">
-                        <div class="mod-num">Módulo 01</div>
-                        <div class="mod-icon"><i class="fa-solid fa-gears"></i></div>
+                    <div class="mod-num">01</div>
+                    <div class="mod-body">
+                        <div class="mod-title">Fundamentos de Engenharia de Prompt</div>
+                        <div class="mod-desc">A estrutura PCIE para falar com a IA
+                            de forma eficaz. Como evitar alucinações e respostas genéricas. Como economizar tokens.
+                        </div>
+                        <div class="mod-tags"><span class="tag">ChatGPT</span><span class="tag">Gemini</span><span
+                                class="tag">Claude</span></div>
                     </div>
-                    <h3 class="mod-title">Fundamentos de Engenharia de Prompt</h3>
-                    <p class="mod-desc">A estrutura PCIE para falar com a IA de forma eficaz. Como evitar alucinações e obter respostas cirúrgicas. Técnicas práticas de economia de tokens.</p>
-                    <div class="mod-tags"><span class="tag">ChatGPT</span><span class="tag">Gemini</span><span class="tag">Claude</span></div>
                 </div>
-
-                <!-- Module 2 -->
                 <div class="module-card">
-                    <div class="mod-header">
-                        <div class="mod-num">Módulo 02</div>
-                        <div class="mod-icon"><i class="fa-solid fa-book-open"></i></div>
+                    <div class="mod-num">02</div>
+                    <div class="mod-body">
+                        <div class="mod-title">NotebookLM para Concursos</div>
+                        <div class="mod-desc">Como fazer a IA ler seus PDFs pesados de leis secas e apostilas. Geração
+                            automática de podcasts de revisão para ouvir no trânsito.</div>
+                        <div class="mod-tags"><span class="tag">Curadoria dos materiais</span><span class="tag">Geração
+                                de Podcasts, Mapas Mentais entre outros</span></div>
                     </div>
-                    <h3 class="mod-title">NotebookLM para Concursos</h3>
-                    <p class="mod-desc">Como fazer a IA ler seus PDFs pesados de leis secas e apostilas. Geração automática de áudios e podcasts de revisão para ouvir no trânsito.</p>
-                    <div class="mod-tags"><span class="tag">NotebookLM</span><span class="tag">Áudio-Revisão</span><span class="tag">PDFs</span></div>
                 </div>
-
-                <!-- Module 3 -->
                 <div class="module-card">
-                    <div class="mod-header">
-                        <div class="mod-num">Módulo 03</div>
-                        <div class="mod-icon"><i class="fa-solid fa-brain"></i></div>
+                    <div class="mod-num">03</div>
+                    <div class="mod-body">
+                        <div class="mod-title">Estudo Ativo na Prática</div>
+                        <div class="mod-desc">Roteiro completo do Feynman Reverso. Como criar Flashcards sob demanda com
+                            IA.
+                            Simulados adaptativos que focam nas suas fraquezas específicas.</div>
+                        <div class="mod-tags"><span class="tag">Retenção</span><span class="tag">Revisão</span></div>
                     </div>
-                    <h3 class="mod-title">Estudo Ativo na Prática</h3>
-                    <p class="mod-desc">Roteiro completo do Feynman Reverso. Como criar Flashcards inteligentes sob demanda. Simulados adaptativos que focam nas suas fraquezas.</p>
-                    <div class="mod-tags"><span class="tag">Feynman Reverso</span><span class="tag">Flashcards</span><span class="tag">Simulados</span></div>
                 </div>
-
-                <!-- Module 4 -->
                 <div class="module-card">
-                    <div class="mod-header">
-                        <div class="mod-num">Módulo 04</div>
-                        <div class="mod-icon"><i class="fa-solid fa-list-check"></i></div>
+                    <div class="mod-num">04</div>
+                    <div class="mod-body">
+                        <div class="mod-title">Organização Inteligente de Edital</div>
+                        <div class="mod-desc">Mapeamento de lacunas do edital. Priorização por peso
+                            estratégico de disciplinas para não desperdiçar tempo.</div>
+                        <div class="mod-tags"><span class="tag">Edital</span><span class="tag">Planejamento</span></div>
                     </div>
-                    <h3 class="mod-title">Organização Inteligente de Edital</h3>
-                    <p class="mod-desc">Mapeamento automatizado de lacunas do edital. Priorização por peso estratégico de disciplinas para não desperdiçar um único minuto estudando o que não cai.</p>
-                    <div class="mod-tags"><span class="tag">Editais</span><span class="tag">Planejamento</span><span class="tag">Foco</span></div>
                 </div>
-
-                <!-- Module 5 -->
                 <div class="module-card">
-                    <div class="mod-header">
-                        <div class="mod-num">Módulo 05</div>
-                        <div class="mod-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                    <div class="mod-num">05</div>
+                    <div class="mod-body">
+                        <div class="mod-title">Fluxos Avançados — Análise de Erro</div>
+                        <div class="mod-desc">Rastreamento de erros com IA para blindar sua pontuação. Caderno de erros
+                            dinâmico que avisa quando você precisa revisar.</div>
+                        <div class="mod-tags"><span class="tag">Pontuação</span><span class="tag">Revisão ativa</span>
+                        </div>
                     </div>
-                    <h3 class="mod-title">Fluxos Avançados — Análise de Erro</h3>
-                    <p class="mod-desc">Rastreamento de erros com IA para blindar sua pontuação. Como estruturar um caderno de erros dinâmico que te avisa exatamente quando e o que revisar.</p>
-                    <div class="mod-tags"><span class="tag">Caderno de Erros</span><span class="tag">Revisão Dinâmica</span></div>
                 </div>
             </div>
         </div>
@@ -1635,17 +1405,13 @@
 
     <!-- GUARANTEE (antes do preço) -->
     <section class="guarantee">
-        <div class="guarantee-box">
-            <div class="g-badge-large">
-                <i class="fa-solid fa-shield-halved" style="color: var(--green);"></i>
-            </div>
-            <div class="guarantee-content">
-                <span class="g-risk-zero">Risco Zero Absoluto</span>
+        <div class="guarantee-inner">
+            <div class="g-badge"><i class="fa-solid fa-shield-halved" style="color: var(--green);"></i></div>
+            <div>
                 <h3>Garantia Incondicional de 7 Dias</h3>
-                <p>
-                    Acesse o método, aplique os prompts no seu estudo e veja a diferença na sua retenção. 
-                    <strong>Sem perguntas, sem burocracia.</strong> Se em até 7 dias você não achar que o método valeu cada centavo, cancele direto na Hotmart e nós devolveremos 100% do seu dinheiro. O seu risco é completamente zero.
-                </p>
+                <p>Acesse o método, aplique os prompts no seu estudo, veja a diferença na sua retenção.
+                    Se em 7 dias você não achar que valeu cada centavo, cancele direto na Hotmart e receba
+                    100% do seu dinheiro de volta. Sem perguntas, sem burocracia.</p>
             </div>
         </div>
     </section>
@@ -1653,26 +1419,17 @@
     <!-- PRICING -->
     <section class="pricing" id="preco">
         <h2>Acesso Completo e Vitalício</h2>
-        <p class="pricing-sub" style="margin-bottom: 20px;">Uma única compra. Sem mensalidades.</p>
-        
-        <!-- Permanent access / Infinite Value highlight -->
-        <div style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 18px; background: rgba(0, 242, 254, 0.06); border: 1px solid rgba(0, 242, 254, 0.15); border-radius: 100px; font-size: 13px; color: var(--accent); font-weight: 600; margin-bottom: 40px; font-family: var(--font-headings);">
-            <i class="fa-solid fa-infinity" style="font-size: 16px;"></i> Sem mensalidades. Invista uma única vez e leve o método para toda a sua jornada de concursos.
-        </div>
+        <p class="pricing-sub">Uma única compra. Sem mensalidade.</p>
 
         <div class="pricing-card">
             <div class="pricing-header">
                 <div class="pricing-tag"><i class="fa-solid fa-fire" style="margin-right: 4px;"></i> Preço de Lançamento
                 </div>
 
-                <div class="timer-bar" style="margin: 0 0 16px; display: flex; flex-direction: column; gap: 6px; padding: 16px 20px;">
-                    <div style="display: flex; align-items: center; justify-content: center; gap: 8px;">
-                        <span class="fire"><i class="fa-solid fa-hourglass-end" style="color: var(--accent-red);"></i></span>
-                        <span>Oferta expira em: <span id="countdown">15:00</span></span>
-                    </div>
-                    <div style="font-size: 11.5px; color: var(--accent-gold); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px; line-height: 1.4;">
-                        ⚠️ Últimas 50 unidades com 31% de desconto. Depois volta para R$ 97.
-                    </div>
+                <div class="timer-bar" style="margin: 0 0 16px;">
+                    <span class="fire"><i class="fa-solid fa-hourglass-end"
+                            style="color: var(--accent-red); margin-right: 4px;"></i></span>
+                    <span>Oferta expira em: <span id="countdown">15:00</span></span>
                 </div>
 
                 <div class="price-old">De R$ 97,00</div>
@@ -1681,10 +1438,9 @@
             </div>
 
             <div class="pricing-features">
-                <div class="feat-item">
-                    <span class="feat-icon" style="color: var(--accent);"><i class="fa-solid fa-infinity"></i></span> 
-                    <strong>Acesso Vitalício:</strong> Invista uma única vez, use para sempre e receba todas as futuras atualizações.
-                </div>
+                <div class="feat-item"><span class="feat-icon"><i class="fa-solid fa-circle-check"></i></span> Acesso
+                    vitalício ao método e todas as
+                    atualizações</div>
                 <div class="feat-item"><span class="feat-icon"><i class="fa-solid fa-circle-check"></i></span>
                     Biblioteca com +20 prompts prontos para copiar e
                     colar</div>
@@ -1705,7 +1461,7 @@
                 <div class="cta-block">
                     <a href="./acesso/" class="cta-primary"
                         style="width:100%;text-align:center;" target="_blank" rel="noopener">
-                        QUERO TER ACESSO AOS PROMPTS AGORA →
+                        QUERO MEU ACESSO AGORA →
                     </a>
                     <div class="guarantee-pill">
                         <span class="g-icon"><i class="fa-solid fa-shield-halved"
@@ -1766,7 +1522,7 @@
         <p>Acesse hoje os prompts exatos de quem foi do fracasso na objetiva do TRT-15 ao 6º lugar geral no TRT-2 — em
             menos de um ano.</p>
         <a href="./acesso/" class="cta-primary" target="_blank" rel="noopener">
-            SIM, QUERO ACELERAR MINHA APROVAÇÃO →
+            QUERO ESTUDAR COM IA E PASSAR →
         </a>
         <div style="margin-top:16px;font-size:13px;color:var(--muted);">
             R$ 67 à vista · Acesso imediato · Garantia de 7 dias

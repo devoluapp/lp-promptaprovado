@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PromptAprovado | Um jeito mais eficiente de estudar com IA</title>
+    <meta name="description"
+        content="A maioria usa IA pra resumir PDF. Eu usei pra ficar em 6º lugar no TRT-2. Método prático de estudo ativo com IA para concursos públicos." />
+
+    <!-- Meta Pixel Code -->
+    <script src="../js/pixel.js"></script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=990961440342976&ev=PageView&noscript=1" /></noscript>
+    <!-- End Meta Pixel Code -->
+
+    <style>
+        :root {
+            --bg: #08111f;
+            --bg2: #0d1828;
+            --ink: #f7f8fb;
+            --muted: #a9b4c6;
+            --soft: #d7dfec;
+            --line: rgba(255, 255, 255, .13);
+            --card: rgba(255, 255, 255, .06);
+            --card2: rgba(255, 255, 255, .09);
+            --cyan: #39d5ff;
+            --cyan2: #72e4ff;
+            --gold: #f4c95d;
+            --green: #36d399;
+            --danger: #ff6b5f;
+            --white: #ffffff;
+            --dark: #050912;
+            --max: 1160px;
+            --radius: 28px;
+            --shadow: 0 28px 90px rgba(0, 0, 0, .42);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at 18% 0%, rgba(57, 213, 255, .15), transparent 30%),
+                radial-gradient(circle at 85% 8%, rgba(114, 228, 255, .10), transparent 28%),
+                linear-gradient(180deg, #050912 0%, #08111f 42%, #050912 100%);
+            line-height: 1.45;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit
+        }
+
+        img {
+            max-width: 100%;
+            display: block
+        }
+
+        .container {
+            width: min(var(--max), calc(100% - 40px));
+            margin: 0 auto
+        }
+
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(5, 9, 18, .86);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .topbar-inner {
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 800;
+            color: var(--soft);
+            gap: 8px;
+        }
+
+        .topbar b {
+            color: var(--cyan)
+        }
+
+        header {
+            border-bottom: 1px solid var(--line);
+            background: rgba(8, 17, 31, .45);
+            backdrop-filter: blur(12px)
+        }
+
+        .nav {
+            height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px
+        }
+
+        .brand {
+            font-size: clamp(23px, 2.5vw, 31px);
+            font-weight: 950;
+            letter-spacing: -.055em;
+            display: flex;
+            align-items: center;
+            gap: 8px
+        }
+
+        .brand .mark {
+            color: var(--danger)
+        }
+
+        .brand .blue {
+            color: var(--cyan)
+        }
+
+        .nav-btn {
+            height: 42px;
+            padding: 0 18px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, var(--cyan), var(--cyan2));
+            color: #04111d;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 950;
+            font-size: 13px;
+            box-shadow: 0 0 38px rgba(57, 213, 255, .22)
+        }
+
+        .hero {
+            padding: clamp(52px, 7vw, 96px) 0 46px;
+            position: relative
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.08fr .92fr;
+            gap: clamp(34px, 5vw, 70px);
+            align-items: center
+        }
+
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid rgba(57, 213, 255, .28);
+            background: rgba(57, 213, 255, .08);
+            color: var(--cyan);
+            border-radius: 999px;
+            padding: 9px 14px;
+            text-transform: uppercase;
+            font-size: 12px;
+            font-weight: 950;
+            letter-spacing: .05em;
+            margin-bottom: 18px
+        }
+
+        h1 {
+            font-size: clamp(42px, 6.4vw, 82px);
+            line-height: .96;
+            letter-spacing: -.075em;
+            font-weight: 980;
+            max-width: 860px
+        }
+
+        .grad {
+            background: linear-gradient(135deg, #fff 0%, #d9f6ff 32%, var(--cyan) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent
+        }
+
+        .hero p.lead {
+            margin-top: 24px;
+            max-width: 700px;
+            color: var(--soft);
+            font-size: clamp(18px, 2vw, 22px)
+        }
+
+        .proofs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 22px;
+            max-width: 780px
+        }
+
+        .proof {
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, .055);
+            border-radius: 999px;
+            padding: 9px 12px;
+            color: var(--soft);
+            font-weight: 800;
+            font-size: 13px
+        }
+
+        .proof b {
+            color: var(--cyan)
+        }
+
+        .actions {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 34px
+        }
+
+        .btn-primary {
+            min-height: 60px;
+            padding: 0 28px;
+            border-radius: 17px;
+            background: linear-gradient(135deg, var(--cyan), var(--cyan2));
+            color: #04111d;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 980;
+            letter-spacing: -.02em;
+            box-shadow: 0 22px 60px rgba(57, 213, 255, .25);
+            transition: .2s ease
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 28px 76px rgba(57, 213, 255, .34)
+        }
+
+        .micro {
+            font-size: 14px;
+            color: var(--muted)
+        }
+
+        .micro b {
+            color: var(--green)
+        }
+
+        .study-card {
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, .15);
+            background: linear-gradient(180deg, rgba(255, 255, 255, .10), rgba(255, 255, 255, .04));
+            border-radius: var(--radius);
+            padding: 22px;
+            box-shadow: var(--shadow);
+            overflow: hidden
+        }
+
+        .study-card:after {
+            content: "";
+            position: absolute;
+            right: -90px;
+            top: -90px;
+            width: 230px;
+            height: 230px;
+            background: rgba(57, 213, 255, .13);
+            filter: blur(40px);
+            border-radius: 50%
+        }
+
+        .mock-photo {
+            position: relative;
+            z-index: 1;
+            border-radius: 23px;
+            min-height: 410px;
+            background:
+                linear-gradient(130deg, rgba(255, 255, 255, .08), rgba(255, 255, 255, .02)),
+                radial-gradient(circle at 70% 20%, rgba(57, 213, 255, .18), transparent 33%),
+                linear-gradient(135deg, #111b2a, #060a12);
+            border: 1px solid rgba(255, 255, 255, .12);
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden
+        }
+
+        .desk-label {
+            display: inline-flex;
+            width: max-content;
+            background: rgba(57, 213, 255, .11);
+            border: 1px solid rgba(57, 213, 255, .25);
+            color: var(--cyan);
+            font-size: 12px;
+            font-weight: 950;
+            border-radius: 999px;
+            padding: 8px 11px;
+            text-transform: uppercase;
+            letter-spacing: .05em
+        }
+
+        .notebook {
+            background: #f7f7f2;
+            color: #111827;
+            border-radius: 18px;
+            padding: 20px;
+            box-shadow: 0 24px 70px rgba(0, 0, 0, .35);
+            margin-top: 30px;
+            transform: rotate(-1deg)
+        }
+
+        .notebook .small {
+            font-size: 12px;
+            color: #667085;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            margin-bottom: 10px
+        }
+
+        .notebook h3 {
+            font-size: 24px;
+            line-height: 1.05;
+            letter-spacing: -.05em;
+            color: #111827;
+            margin-bottom: 12px
+        }
+
+        .yellow {
+            background: linear-gradient(transparent 58%, rgba(244, 201, 93, .55) 58%)
+        }
+
+        .note-lines {
+            display: grid;
+            gap: 8px;
+            margin-top: 14px
+        }
+
+        .note-lines span {
+            height: 9px;
+            border-radius: 999px;
+            background: #d8dde8
+        }
+
+        .note-lines span:nth-child(2) {
+            width: 82%
+        }
+
+        .note-lines span:nth-child(3) {
+            width: 65%
+        }
+
+        .rank {
+            position: relative;
+            z-index: 1;
+            margin-top: 16px;
+            border: 1px solid rgba(57, 213, 255, .25);
+            background: rgba(57, 213, 255, .08);
+            border-radius: 20px;
+            padding: 18px;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 14px;
+            align-items: center
+        }
+
+        .rank-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 16px;
+            background: rgba(57, 213, 255, .14);
+            display: grid;
+            place-items: center;
+            font-size: 26px
+        }
+
+        .rank h3 {
+            font-size: 24px;
+            letter-spacing: -.04em
+        }
+
+        .rank p {
+            color: var(--muted);
+            font-size: 14px;
+            margin-top: 4px
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, .04);
+            border-radius: 24px;
+            overflow: hidden;
+            margin-top: 44px
+        }
+
+        .stat {
+            padding: 22px;
+            text-align: center;
+            border-right: 1px solid var(--line)
+        }
+
+        .stat:last-child {
+            border-right: none
+        }
+
+        .stat strong {
+            font-size: clamp(30px, 4vw, 44px);
+            line-height: 1;
+            color: var(--cyan);
+            letter-spacing: -.06em;
+            display: block
+        }
+
+        .stat span {
+            display: block;
+            margin-top: 8px;
+            color: var(--muted);
+            font-size: 12px;
+            font-weight: 950;
+            text-transform: uppercase;
+            letter-spacing: .05em
+        }
+
+        section {
+            padding: clamp(62px, 8vw, 100px) 0
+        }
+
+        .section-head {
+            max-width: 780px;
+            margin-bottom: 34px
+        }
+
+        .kicker {
+            color: var(--cyan);
+            font-size: 13px;
+            font-weight: 950;
+            text-transform: uppercase;
+            letter-spacing: .09em;
+            margin-bottom: 13px
+        }
+
+        h2 {
+            font-size: clamp(34px, 4.8vw, 60px);
+            line-height: 1;
+            letter-spacing: -.065em
+        }
+
+        .section-head p {
+            color: var(--muted);
+            font-size: 18px;
+            margin-top: 16px
+        }
+
+        .belief {
+            background: linear-gradient(180deg, rgba(255, 255, 255, .035), rgba(255, 255, 255, .015));
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line)
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: .95fr 1.05fr;
+            gap: 28px;
+            align-items: start
+        }
+
+        .big-quote {
+            border: 1px solid rgba(244, 201, 93, .22);
+            background: rgba(244, 201, 93, .07);
+            border-radius: var(--radius);
+            padding: 30px;
+            font-size: clamp(25px, 3vw, 38px);
+            line-height: 1.05;
+            letter-spacing: -.055em;
+            font-weight: 950
+        }
+
+        .big-quote span {
+            color: var(--gold)
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px
+        }
+
+        .card {
+            border: 1px solid var(--line);
+            background: var(--card);
+            border-radius: 24px;
+            padding: 24px
+        }
+
+        .card h3 {
+            font-size: 22px;
+            letter-spacing: -.04em;
+            margin-bottom: 9px
+        }
+
+        .card p {
+            color: var(--muted)
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: .85fr 1.15fr;
+            gap: 30px;
+            align-items: start
+        }
+
+        .profile {
+            position: sticky;
+            top: 90px;
+            border: 1px solid rgba(57, 213, 255, .18);
+            background: linear-gradient(180deg, rgba(57, 213, 255, .08), rgba(255, 255, 255, .04));
+            border-radius: var(--radius);
+            padding: 24px
+        }
+
+        .photo-placeholder {
+            aspect-ratio: 1/1;
+            border-radius: 24px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, .08), rgba(255, 255, 255, .03)), #0b1422;
+            border: 1px dashed rgba(255, 255, 255, .2);
+            display: grid;
+            place-items: center;
+            text-align: center;
+            color: var(--muted);
+            padding: 18px;
+            margin-bottom: 18px
+        }
+
+        .profile h3 {
+            font-size: 28px;
+            letter-spacing: -.045em
+        }
+
+        .profile p {
+            color: var(--muted);
+            margin-top: 10px
+        }
+
+        .timeline {
+            display: grid;
+            gap: 14px
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 112px 1fr;
+            gap: 18px;
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, .045);
+            border-radius: 22px;
+            padding: 22px
+        }
+
+        .year {
+            color: var(--cyan);
+            font-weight: 980;
+            font-size: 20px
+        }
+
+        .timeline-item h3 {
+            font-size: 22px;
+            letter-spacing: -.035em
+        }
+
+        .timeline-item p {
+            color: var(--muted);
+            margin-top: 6px
+        }
+
+        .quote {
+            margin-top: 16px;
+            border: 1px solid rgba(57, 213, 255, .22);
+            background: rgba(57, 213, 255, .07);
+            border-radius: 24px;
+            padding: 24px;
+            color: var(--soft);
+            font-size: 18px
+        }
+
+        .method-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px
+        }
+
+        .module {
+            border: 1px solid var(--line);
+            background: var(--card);
+            border-radius: 24px;
+            padding: 24px
+        }
+
+        .module-num {
+            color: var(--cyan);
+            font-weight: 950;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            margin-bottom: 14px
+        }
+
+        .module h3 {
+            font-size: 24px;
+            letter-spacing: -.045em;
+            margin-bottom: 9px
+        }
+
+        .module p {
+            color: var(--muted)
+        }
+
+        .tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 16px
+        }
+
+        .tag {
+            color: var(--cyan);
+            border: 1px solid rgba(57, 213, 255, .22);
+            background: rgba(57, 213, 255, .07);
+            border-radius: 999px;
+            padding: 6px 9px;
+            font-size: 12px;
+            font-weight: 850
+        }
+
+        .demo {
+            background: linear-gradient(180deg, rgba(255, 255, 255, .025), rgba(255, 255, 255, .01));
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line)
+        }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px
+        }
+
+        .demo-box {
+            border: 1px solid var(--line);
+            background: #f6f4ed;
+            color: #101828;
+            border-radius: 24px;
+            padding: 26px;
+            min-height: 260px
+        }
+
+        .demo-box.dark {
+            background: rgba(255, 255, 255, .06);
+            color: var(--ink)
+        }
+
+        .demo-box .label {
+            display: inline-flex;
+            background: rgba(57, 213, 255, .13);
+            color: #006c82;
+            border-radius: 999px;
+            padding: 7px 10px;
+            font-size: 12px;
+            font-weight: 950;
+            text-transform: uppercase;
+            margin-bottom: 16px
+        }
+
+        .demo-box h3 {
+            font-size: 25px;
+            line-height: 1.05;
+            letter-spacing: -.045em
+        }
+
+        .demo-box p {
+            margin-top: 12px;
+            color: #526070
+        }
+
+        .demo-box.dark p {
+            color: var(--muted)
+        }
+
+        .fake-input {
+            margin-top: 18px;
+            border-left: 4px solid var(--gold);
+            background: #fff;
+            border-radius: 12px;
+            padding: 14px;
+            font-size: 14px;
+            color: #344054
+        }
+
+        .response {
+            margin-top: 16px;
+            background: rgba(57, 213, 255, .08);
+            border: 1px solid rgba(57, 213, 255, .18);
+            border-radius: 16px;
+            padding: 16px;
+            color: var(--soft)
+        }
+
+        .offer {
+            padding-bottom: 115px
+        }
+
+        .offer-card {
+            max-width: 860px;
+            margin: 0 auto;
+            text-align: center;
+            border: 1px solid rgba(57, 213, 255, .25);
+            border-radius: 34px;
+            padding: clamp(30px, 5vw, 56px);
+            background: radial-gradient(circle at 50% 0%, rgba(57, 213, 255, .14), transparent 40%), linear-gradient(180deg, rgba(255, 255, 255, .09), rgba(255, 255, 255, .04));
+            box-shadow: var(--shadow)
+        }
+
+        .timer {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid rgba(255, 107, 95, .22);
+            background: rgba(255, 107, 95, .1);
+            color: #ffd1cd;
+            border-radius: 999px;
+            padding: 10px 14px;
+            font-weight: 900;
+            margin-bottom: 18px
+        }
+
+        .price-old {
+            text-decoration: line-through;
+            color: var(--muted);
+            margin-top: 22px
+        }
+
+        .price {
+            font-size: clamp(62px, 8vw, 96px);
+            font-weight: 980;
+            line-height: 1;
+            letter-spacing: -.08em;
+            margin: 4px 0
+        }
+
+        .installments {
+            color: var(--muted);
+            font-size: 18px
+        }
+
+        .offer-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            text-align: left;
+            margin: 30px 0
+        }
+
+        .offer-list li {
+            list-style: none;
+            background: rgba(255, 255, 255, .045);
+            border-radius: 16px;
+            padding: 12px;
+            color: var(--soft);
+            display: flex;
+            gap: 10px
+        }
+
+        .offer-list li:before {
+            content: "✓";
+            color: var(--green);
+            font-weight: 950
+        }
+
+        .guarantee {
+            max-width: 860px;
+            margin: 22px auto 0;
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, .045);
+            border-radius: 24px;
+            padding: 22px;
+            color: var(--muted);
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 16px;
+            align-items: center
+        }
+
+        .guarantee b {
+            color: #fff
+        }
+
+        .seal {
+            font-size: 36px
+        }
+
+        .faq-grid {
+            display: grid;
+            gap: 12px
+        }
+
+        .faq-item {
+            border: 1px solid var(--line);
+            background: var(--card);
+            border-radius: 22px;
+            padding: 22px
+        }
+
+        .faq-item h3 {
+            font-size: 20px;
+            letter-spacing: -.03em;
+            margin-bottom: 8px
+        }
+
+        .faq-item p {
+            color: var(--muted)
+        }
+
+        .final {
+            text-align: center;
+            background: radial-gradient(circle at 50% 0%, rgba(57, 213, 255, .13), transparent 38%);
+            padding: 86px 0
+        }
+
+        .final h2 {
+            max-width: 880px;
+            margin: 0 auto 18px
+        }
+
+        .final p {
+            max-width: 680px;
+            margin: 0 auto 28px;
+            color: var(--muted);
+            font-size: 19px
+        }
+
+        footer {
+            border-top: 1px solid var(--line);
+            padding: 28px 0;
+            text-align: center;
+            color: var(--muted);
+            font-size: 14px
+        }
+
+        .mobile-sticky {
+            display: none;
+            position: fixed;
+            left: 12px;
+            right: 12px;
+            bottom: 12px;
+            z-index: 70
+        }
+
+        .mobile-sticky .btn-primary {
+            width: 100%;
+            min-height: 54px
+        }
+
+        @media(max-width:940px) {
+
+            .hero-grid,
+            .two-col,
+            .story-grid,
+            .demo-grid {
+                grid-template-columns: 1fr
+            }
+
+            .profile {
+                position: relative;
+                top: auto
+            }
+
+            .cards {
+                grid-template-columns: 1fr
+            }
+
+            .method-grid {
+                grid-template-columns: 1fr
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .stat:nth-child(2) {
+                border-right: none
+            }
+
+            .stat:nth-child(1),
+            .stat:nth-child(2) {
+                border-bottom: 1px solid var(--line)
+            }
+        }
+
+        @media(max-width:640px) {
+            .container {
+                width: min(100% - 28px, var(--max))
+            }
+
+            .nav {
+                height: 66px
+            }
+
+            .nav-btn {
+                display: none
+            }
+
+            .hero {
+                padding-top: 40px
+            }
+
+            .actions .btn-primary {
+                width: 100%
+            }
+
+            .stats {
+                grid-template-columns: 1fr
+            }
+
+            .stat {
+                border-right: none !important;
+                border-bottom: 1px solid var(--line)
+            }
+
+            .stat:last-child {
+                border-bottom: none
+            }
+
+            .timeline-item {
+                grid-template-columns: 1fr
+            }
+
+            .offer-list {
+                grid-template-columns: 1fr
+            }
+
+            .mobile-sticky {
+                display: block
+            }
+
+            body {
+                padding-bottom: 78px
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="topbar">
+        <div class="container topbar-inner">⚡ Preço de lançamento: <b>R$ 67 à vista ou 9x de R$ 8,80</b></div>
+    </div>
+
+    <header>
+        <div class="container nav">
+            <a href="#top" class="brand"><span class="mark">⚡</span><span>Prompt</span><span
+                    class="blue">Aprovado</span></a>
+            <a href="/acesso/" class="nav-btn" target="_blank" rel="noopener">QUERO ACESSO →</a>
+        </div>
+    </header>
+
+    <main id="top">
+        <section class="hero">
+            <div class="container hero-grid">
+                <div>
+                    <div class="pill">Concurso público · estudo ativo · IA sem milagre</div>
+                    <h1>A maioria usa IA pra resumir PDF. <span class="grad">Eu usei pra ficar em 6º lugar no
+                            TRT-2.</span></h1>
+                    <p class="lead">Depois de reprovar no TRT-15, transformei a IA em uma ferramenta de estudo ativo
+                        para revisar melhor, identificar lacunas e acelerar minha preparação.</p>
+                    <div class="proofs">
+                        <span class="proof"><b>Servidor do TRT-2</b> desde 2012</span>
+                        <span class="proof"><b>Pai de família</b> e rotina integral</span>
+                        <span class="proof"><b>6º lugar</b> para AJTI TRT-2</span>
+                    </div>
+                    <div class="actions">
+                        <a class="btn-primary" href="/acesso/" target="_blank" rel="noopener">QUERO ESTUDAR COM IA →</a>
+                        <p class="micro"><b>Acesso imediato</b> · +20 prompts · garantia de 7 dias</p>
+                    </div>
+                </div>
+
+                <div class="study-card">
+                    <div class="mock-photo">
+                        <span class="desk-label">Método real de estudo</span>
+                        <div class="notebook">
+                            <div class="small">Google Docs · Revisão ativa</div>
+                            <h3>Não é sobre pedir resumo. É sobre <span class="yellow">testar entendimento</span>.</h3>
+                            <div class="note-lines"><span></span><span></span><span></span></div>
+                        </div>
+                    </div>
+                    <div class="rank">
+                        <div class="rank-icon">🏆</div>
+                        <div>
+                            <h3>6º lugar no TRT-2</h3>
+                            <p>Após reprovar no TRT-15 meses antes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container stats">
+                <div class="stat"><strong>+20</strong><span>prompts prontos</span></div>
+                <div class="stat"><strong>5</strong><span>módulos práticos</span></div>
+                <div class="stat"><strong>7</strong><span>dias de garantia</span></div>
+                <div class="stat"><strong>∞</strong><span>acesso vitalício</span></div>
+            </div>
+        </section>
+
+        <section class="belief">
+            <div class="container two-col">
+                <div class="big-quote">O problema não era estudar pouco. <span>Era estudar de forma passiva.</span>
+                </div>
+                <div>
+                    <div class="section-head" style="margin-bottom:24px">
+                        <div class="kicker">A quebra de crença</div>
+                        <h2>Eu precisava interagir mais com o conteúdo.</h2>
+                        <p>Por muito tempo, eu fazia o que quase todo concurseiro faz: lia PDF, assistia aula, fazia
+                            resumo e tentava revisar depois. Só que isso não garantia que eu realmente dominava a
+                            matéria.</p>
+                    </div>
+                    <p style="color:var(--soft);font-size:18px">A virada foi usar a IA como uma espécie de tutor: eu
+                        explicava o assunto, ela apontava falhas, criava perguntas, simulava pegadinhas e me obrigava a
+                        recuperar o conteúdo ativamente.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="section-head">
+                    <div class="kicker">Para quem é</div>
+                    <h2>Para concurseiro que já entendeu que só consumir conteúdo não basta.</h2>
+                    <p>Esse método é para quem quer estudar com mais inteligência, não para quem procura uma IA mágica
+                        que faça a prova no lugar.</p>
+                </div>
+                <div class="cards">
+                    <div class="card">
+                        <h3>Você estuda, mas esquece.</h3>
+                        <p>Aprenda a transformar IA em ferramenta de recuperação ativa e revisão direcionada.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Você erra, mas não sabe a raiz.</h3>
+                        <p>Use prompts para entender lacunas, pegadinhas e padrões de erro.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Você tem pouco tempo.</h3>
+                        <p>Organize revisão, edital, PDFs e redação com mais eficiência.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="story belief">
+            <div class="container story-grid">
+                <aside class="profile">
+                    <div class="photo-placeholder" style="border-style: solid; padding: 0; overflow: hidden;">
+                        <img src="../img/foto-roberto2.png" alt="Foto de Roberto Tavares" style="width: 100%; height: 100%; object-fit: cover;" />
+                    </div>
+                    <h3>Roberto Tavares</h3>
+                    <p>Sou servidor do TRT-2 desde 2012, marido da Catarina, pai do Júlio e fui aprovado em 6º lugar
+                        para Analista Judiciário de TI no TRT-2 aos 42 anos.</p>
+                </aside>
+
+                <div>
+                    <div class="section-head">
+                        <div class="kicker">Minha história</div>
+                        <h2>Antes do 6º lugar, eu também passei pela fase do quase.</h2>
+                        <p>Eu não sou um gênio. Eu fui insistente, ajustei o método e parei de jogar fora a bagagem que
+                            eu já tinha acumulado.</p>
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="year">2012</div>
+                            <div>
+                                <h3>Assumi como Técnico no TRT-2</h3>
+                                <p>Entrei em um concurso atípico, em uma colocação distante, chamado quase no fim do
+                                    prazo.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="year">2018</div>
+                            <div>
+                                <h3>Reprovei para Analista</h3>
+                                <p>Eu queria evoluir, mas ainda estudava muito no modelo tradicional.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="year">2023–2024</div>
+                            <div>
+                                <h3>Fiquei na fila do “quase”</h3>
+                                <p>Justiça Eleitoral, TRT-12 e TRF-3: cheguei perto, mas ainda não onde eu queria.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="year">TRT-15</div>
+                            <div>
+                                <h3>Reprovei na objetiva</h3>
+                                <p>Esse baque me obrigou a estudar o que os aprovados faziam diferente: revisão, estudo
+                                    ativo e feedback.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="year">TRT-2</div>
+                            <div>
+                                <h3>Fiquei em 6º lugar para AJTI</h3>
+                                <p>Com IA aplicada ao estudo ativo, análise de lacunas, flashcards, redação e revisão
+                                    pós-erro.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="quote">“Eu parei de usar IA só para resumir conteúdo. Passei a usar para me testar,
+                        corrigir meu raciocínio e revisar o que eu ainda não dominava.”</div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="section-head">
+                    <div class="kicker">O método</div>
+                    <h2>Primeiro vem o estudo. A IA entra como ferramenta de execução.</h2>
+                    <p>Só agora entram os prompts, o PCIE, o NotebookLM e os fluxos prontos. Eles são o meio — não a
+                        promessa mágica.</p>
+                </div>
+                <div class="method-grid">
+                    <div class="module">
+                        <div class="module-num">Módulo 01</div>
+                        <h3>Fundamentos de Prompt</h3>
+                        <p>Como estruturar comandos com Persona, Contexto, Instrução e Especificação de Output.</p>
+                        <div class="tags"><span class="tag">PCIE</span><span class="tag">clareza</span><span
+                                class="tag">menos resposta genérica</span></div>
+                    </div>
+                    <div class="module">
+                        <div class="module-num">Módulo 02</div>
+                        <h3>NotebookLM para concursos</h3>
+                        <p>Como usar seus PDFs para gerar revisão, áudio, mapas e organização de conteúdo.</p>
+                        <div class="tags"><span class="tag">PDFs</span><span class="tag">revisão</span><span
+                                class="tag">mapas</span></div>
+                    </div>
+                    <div class="module">
+                        <div class="module-num">Módulo 03</div>
+                        <h3>Estudo ativo na prática</h3>
+                        <p>Feynman Reverso, flashcards sob demanda e simulados adaptativos.</p>
+                        <div class="tags"><span class="tag">feedback</span><span class="tag">retenção</span><span
+                                class="tag">questões</span></div>
+                    </div>
+                    <div class="module">
+                        <div class="module-num">Módulo 04</div>
+                        <h3>Organização inteligente</h3>
+                        <p>Mapeamento de lacunas do edital e priorização por peso.</p>
+                        <div class="tags"><span class="tag">edital</span><span class="tag">lacunas</span><span
+                                class="tag">prioridade</span></div>
+                    </div>
+                    <div class="module">
+                        <div class="module-num">Módulo 05</div>
+                        <h3>Fluxos avançados</h3>
+                        <p>Análise pós-erro para parar de repetir a mesma pegadinha.</p>
+                        <div class="tags"><span class="tag">pós-erro</span><span class="tag">revisão</span><span
+                                class="tag">banca</span></div>
+                    </div>
+                    <div class="module">
+                        <div class="module-num">Bônus</div>
+                        <h3>Biblioteca com +20 prompts</h3>
+                        <p>Comandos prontos para adaptar à sua rotina, sem prometer milagre.</p>
+                        <div class="tags"><span class="tag">copiar e adaptar</span><span class="tag">acesso
+                                imediato</span><span class="tag">atualizações</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="demo">
+            <div class="container">
+                <div class="section-head">
+                    <div class="kicker">Demonstração</div>
+                    <h2>O que muda não é “ter IA”. É fazer a pergunta certa.</h2>
+                    <p>O curso mostra como transformar matéria parada em conversa ativa, revisão e correção de
+                        raciocínio.</p>
+                </div>
+                <div class="demo-grid">
+                    <div class="demo-box">
+                        <span class="label">Prompt fraco</span>
+                        <h3>“Resuma esse PDF.”</h3>
+                        <p>Isso até ajuda, mas mantém você no consumo passivo.</p>
+                        <div class="fake-input">Resultado: mais um resumo para ler depois.</div>
+                    </div>
+                    <div class="demo-box dark">
+                        <span class="label">PromptAprovado</span>
+                        <h3>“Teste meu entendimento e aponte o que eu omiti.”</h3>
+                        <p>Agora a IA vira ferramenta de estudo ativo, revisão e feedback.</p>
+                        <div class="response">Resultado: lacunas, perguntas, correções e revisão direcionada.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="offer" id="oferta">
+            <div class="container">
+                <div class="offer-card">
+                    <div class="timer">⏱ Oferta de lançamento termina em <span id="countdown">15:00</span></div>
+                    <h2>Entre no PromptAprovado hoje.</h2>
+                    <p style="color:var(--muted);font-size:18px;margin-top:14px">Aprenda a usar Inteligência Artificial
+                        para estudar melhor e acelerar sua aprovação.</p>
+                    <div class="price-old">De R$ 97,00</div>
+                    <div class="price">R$ 67</div>
+                    <div class="installments">ou 9x de R$ 8,80 no cartão</div>
+                    <ul class="offer-list">
+                        <li>Acesso vitalício ao curso</li>
+                        <li>5 módulos práticos em vídeo</li>
+                        <li>Biblioteca com +20 prompts</li>
+                        <li>NotebookLM aplicado a concursos</li>
+                        <li>Fluxos de revisão e pós-erro</li>
+                        <li>Garantia incondicional de 7 dias</li>
+                    </ul>
+                    <a class="btn-primary" href="/acesso/" style="width:min(100%,520px)" target="_blank" rel="noopener">QUERO MEU ACESSO AGORA →</a>
+                    <p class="micro" style="margin-top:14px">Compra segura via Hotmart · acesso imediato</p>
+                </div>
+                <div class="guarantee">
+                    <div class="seal">🛡️</div>
+                    <p><b>Garantia de 7 dias.</b> Entre, assista às aulas, teste os prompts e veja se faz sentido para
+                        sua rotina. Se não gostar, peça reembolso pela Hotmart.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="section-head">
+                    <div class="kicker">Perguntas frequentes</div>
+                    <h2>Antes de entrar</h2>
+                </div>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3>Isso é uma IA própria ou ferramenta de terceiros?</h3>
+                        <p>Não. O PromptAprovado não é uma IA própria, software secreto ou ferramenta mágica. É um
+                            método prático para usar ferramentas de IA existentes de forma estratégica nos estudos.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Preciso pagar ChatGPT Plus?</h3>
+                        <p>Não necessariamente. Você pode aplicar a estrutura com ferramentas gratuitas ou versões
+                            acessíveis de IA.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Isso substitui estudar?</h3>
+                        <p>Não. A IA não estuda por você. Ela ajuda a revisar, testar entendimento, identificar lacunas
+                            e organizar melhor sua preparação.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Serve só para TRT?</h3>
+                        <p>Não. A lógica pode ser aplicada em tribunais, área administrativa, TI, fiscal, controle e
+                            outras áreas de concurso.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Serve para quem trabalha o dia todo?</h3>
+                        <p>Sim. Eu usei essa estrutura com rotina integral, família e pouco tempo livre.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>O acesso é imediato?</h3>
+                        <p>Sim. Após a confirmação do pagamento, você recebe acesso à área de membros e aos materiais.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="final">
+            <div class="container">
+                <h2>Você pode continuar usando IA só para resumir PDF. Ou pode usar para estudar com método.</h2>
+                <p>O PromptAprovado é a estrutura que eu organizei para transformar IA em revisão ativa, feedback e
+                    preparação mais inteligente.</p>
+                <a class="btn-primary" href="/acesso/" target="_blank" rel="noopener">QUERO ESTUDAR COM IA →</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">© 2026 Concurseiro Top 10 · PromptAprovado</div>
+    </footer>
+    <div class="mobile-sticky"><a href="/acesso/" class="btn-primary" target="_blank" rel="noopener">QUERO ACESSO AGORA →</a></div>
+
+    <script>
+        const countdownEl = document.getElementById('countdown'); let seconds = 15 * 60;
+        function updateCountdown() { const m = String(Math.floor(seconds / 60)).padStart(2, '0'); const s = String(seconds % 60).padStart(2, '0'); countdownEl.textContent = `${m}:${s}`; if (seconds > 0) seconds--; }
+        updateCountdown(); setInterval(updateCountdown, 1000);
+    </script>
+
+    <!-- Pixel & Conversions API (CAPI) Integration -->
+    <script src="../js/capi.js"></script>
+    <script src="../js/events.js"></script>
+</body>
+
+</html>
